@@ -1,1 +1,2 @@
+![Capa](./capa.png)
 # Projeto-Individual_The-Last-of-Us
