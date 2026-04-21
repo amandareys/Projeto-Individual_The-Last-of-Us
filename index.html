@@ -1,11 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styleIndex.css">
     <title>Projeto TLOU</title>
 </head>
+
 <body>
-    
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logo.png" alt="logo Look for the light">
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="personagens.html">Personagens</a></li>
+                    <li><a href="criaturas.html">Criaturas</a></li>
+                    <li><a href="dashboards.html">Dashboards</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="login.html" class="botao-login">Entrar</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="banner">
+        <div class="banner-sombra">
+            <div class="subtitulo">
+                <div class="linha"></div>
+                <img src="img/folha.png" class="divisor-icone">
+                <div class="linha"></div>
+            </div>
+            <div class="texto">
+                <p>
+                    Aqui você encontra um site dinâmico sobre The Last of Us,<br>
+                    explorando sua história, personagens e mundo. <br>
+                    Mais do que falar sobre um jogo, esse site é sobre o que <br>
+                    ele significou pra mim e <span>como ele se conectou <br>
+                        com a minha história.</span>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="sobre-projeto">
+        <div class="container">
+            <h2>Sobre o projeto</h2>
+            <h3>Minha jornada com the Last of Us começou graças ao <span>meu pai.</span></h3>
+            <div class="sub-container">
+                <div class="cards-texto">
+                    <div class="card">Aos 13 anos, ele me apresentou seu jogo favorito, me ensinou a jogar e a enxergar
+                        a profundidade da história e dos personagens.</div>
+                    <div class="card">A partir desse momento, surgiu meu interesse por esse universo e por muitos
+                        outros. The Last of Us me fez sentir, questionar e enxergar a narrativa de uma forma
+                        completamente diferente.</div>
+                    <div class="card">Mas, acima de tudo, ele se conectou com momentos importantes da minha vida,
+                        fortalecendo minha relação com meu pai, tornando essa experiência ainda mais significativa.
+                    </div>
+                </div>
+                <div class="img-pai">
+                    <img src="img/meupai0.jfif" alt="Foto com meu pai">
+                </div>
+            </div>
+            <p class="subtexto-final">Este projeto é uma forma de compartilhar essa vivência e mostrar o quanto esse
+                universo pós-apocalíptico pode ser tão especial e único.</p>
+        </div>
+    </div>
+    <div class="historia">
+        <div class="container">
+            <div class="abas">
+                <button id="botao1" class="botao-aba-selecionada" onclick="mostrarParte1()">Parte I</button>
+                <button id="botao2" class="botao-aba" onclick="mostrarParte2()">Parte II</button>
+            </div>
+            <div class="sub-container2">
+                <div class="imagem-capa">
+                    <img src="img/capa_jogo1.webp" id="img_capa1" alt="Capa do jogo I">
+                </div>
+                <div class="texto-historia">
+                    <h2>História de The Last of Us</h2>
+                    <div class="divisor-historia">
+                        <div class="linha"></div>
+                        <img src="img/folha.png" class="divisor-historia-icone" alt="folha-divisor">
+                        <div class="linha"></div>
+                    </div>
+                    <div class="descricao" id="texto-historia">
+                        <p>
+                            <span>The Last of Us</span> se passa em um mundo pós-apocalíptico devastado por uma infecção
+                            causada por um fungo que transforma humanos em criaturas agressivas. A história acompanha
+                            Joel Miller, um homem marcado pela perda da filha no início do surto.
+                            Anos depois, Joel recebe a missão de escoltar Ellie Williams, uma garota imune à infecção,
+                            até um grupo chamado Vagalumes, que busca criar uma cura. <br>
+
+                            Durante essa jornada, os dois atravessam cidades destruídas, enfrentam infectados e outros
+                            sobreviventes, e constroem uma relação profunda em meio ao caos. <br>
+
+                            Ao chegarem aos Vagalumes, Joel descobre que, para criar a cura, Ellie precisaria morrer.
+                            Incapaz de aceitar essa perda, ele decide resgatá-la, matando os membros do grupo e abrindo
+                            mão da possível cura da humanidade para salvá-la. <br>
+
+                            No final, Joel mente para Ellie sobre o que aconteceu, encerrando a história com uma decisão
+                            que impacta diretamente os acontecimentos do segundo jogo. <br>
+
+                            Mais do que sobrevivência, a narrativa aborda temas como amor, perda, escolhas difíceis e as
+                            consequências de cada decisão. <br>
+
+                            Ao longo da história, surge uma reflexão: até onde alguém iria para proteger quem ama?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <h4>Feito com amor por Amanda &hearts; SPTech &copy; 2026</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
 </body>
+
 </html>
+<script>
+    function mostrarParte1() {
+        document.getElementById("img_capa1").src = "img/capa_jogo1.webp";
+        document.getElementById("texto-historia").innerHTML = `
+        <p>
+            <span>The Last of Us</span> se passa em um mundo pós-apocalíptico devastado por uma infecção
+                            causada por um fungo que transforma humanos em criaturas agressivas. A história acompanha
+                            Joel Miller, um homem marcado pela perda da filha no início do surto.
+                            Anos depois, Joel recebe a missão de escoltar Ellie Williams, uma garota imune à infecção,
+                            até um grupo chamado Vagalumes, que busca criar uma cura. <br>
+
+                            Durante essa jornada, os dois atravessam cidades destruídas, enfrentam infectados e outros
+                            sobreviventes, e constroem uma relação profunda em meio ao caos. <br>
+
+                            Ao chegarem aos Vagalumes, Joel descobre que, para criar a cura, Ellie precisaria morrer.
+                            Incapaz de aceitar essa perda, ele decide resgatá-la, matando os membros do grupo e abrindo
+                            mão da possível cura da humanidade para salvá-la. <br>
+
+                            No final, Joel mente para Ellie sobre o que aconteceu, encerrando a história com uma decisão
+                            que impacta diretamente os acontecimentos do segundo jogo. <br>
+
+                            Mais do que sobrevivência, a narrativa aborda temas como amor, perda, escolhas difíceis e as
+                            consequências de cada decisão. <br>
+
+                            Ao longo da história, surge uma reflexão: até onde alguém iria para proteger quem ama?
+        </p>
+    `;
+        document.getElementById("botao1").classList.add("botao-aba-selecionada");
+        document.getElementById("botao1").classList.remove("botao-aba");
+        document.getElementById("botao2").classList.add("botao-aba");
+        document.getElementById("botao2").classList.remove("botao-aba-selecionada");
+
+    }
+
+    function mostrarParte2() {
+        document.getElementById("img_capa1").src = "img/capa_jogo2.jpg";
+        document.getElementById("texto-historia").innerHTML = `
+        <p>
+        <span>The Last of Us Part II</span> se passa alguns anos após o primeiro jogo e acompanha Ellie Williams vivendo em Jackson ao lado de Joel Miller.
+        A história muda completamente quando Joel é brutalmente assassinado por Abby Anderson, uma jovem que busca vingança pela morte de seu pai, 
+        um dos Vagalumes que Joel matou no final do primeiro jogo.<br>
+        Após esse acontecimento, Ellie inicia uma jornada movida por vingança, enfrentando infectados e outros sobreviventes e comunidades, enquanto lida com seus 
+        próprios conflitos internos.<br>
+        Durante sua jornada, ela elimina várias pessoas ligadas a Abby, aprofundando ainda mais o ciclo de violência.<br>
+        Em determinado momento, a história muda de perspectiva e passa a mostrar o lado de Abby, revelando sua relação com seus amigos, seu passado e os motivos por
+        trás de suas ações, trazendo uma visão mais complexa dos acontecimentos e mostrando que não existem lados totalmente certos ou errados.<br>
+        As duas acabam se encontrando em confrontos diretos, e, após uma sequência de perdas e violência, Ellie tem a chance final de matar Abby, mas decide poupá-la, 
+        encerrando sua jornada marcada por vingança, dor e consequências.<br>
+        </p>
+    `;
+        document.getElementById("botao2").classList.add("botao-aba-selecionada");
+        document.getElementById("botao2").classList.remove("botao-aba");
+        document.getElementById("botao1").classList.add("botao-aba");
+        document.getElementById("botao1").classList.remove("botao-aba-selecionada");
+    }
+</script>
