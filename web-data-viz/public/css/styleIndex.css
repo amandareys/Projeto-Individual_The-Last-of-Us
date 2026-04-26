@@ -1,4 +1,5 @@
-body {
+body,html {
+    height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -19,7 +20,7 @@ header {
 
 .container {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -73,10 +74,11 @@ header {
 .links li a {
     text-decoration: none;
     color: white;
+    transition: 0.3s;
 }
 
 .links li a:hover {
-    color: rgb(151, 131, 45);
+    color: #9D833C;
     text-decoration: underline;
 }
 
@@ -106,7 +108,7 @@ header .container .navbar .links li a.botao-login:hover {
 
 .banner{
     width: 100%;
-    height:610px;
+    height:865px;
 
     display: flex;
     flex-direction: row;
@@ -156,7 +158,7 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .texto span {
-    color: rgb(151, 131, 45); 
+    color: #9D833C; 
     font-weight: bold;
 }
 
@@ -191,7 +193,7 @@ header .container .navbar .links li a.botao-login:hover {
 
 .sobre-projeto h3 span {
     font-size: 40px;
-    color:rgb(151, 131, 45);
+    color:#9D833C;
     padding: 10px 10px;
 }
 
@@ -234,7 +236,7 @@ header .container .navbar .links li a.botao-login:hover {
 
 .subtexto-final {
     margin-top: 15px;
-    color: rgb(151, 131, 45);
+    color: #9D833C;
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
     padding: 0 10%;
@@ -319,7 +321,7 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .descricao span {
-    color: rgb(151, 131, 45); 
+    color: #9D833C; 
     font-weight: bold;
 }
 
@@ -337,11 +339,13 @@ header .container .navbar .links li a.botao-login:hover {
     border-radius: 20px;
     font-size: 18px;
     border: 1px solid #444;
+    cursor: pointer;
 }
 
 .botao-aba {
     background-color: #1a1a1a;
     color: white;
+    
 }
 
 
@@ -357,7 +361,7 @@ header .container .navbar .links li a.botao-login:hover {
     background-color: #000;
     color: white;
     font-family: 'Oswald', sans-serif;
-    padding: 40px 0;
+    padding: 20px 0;
     
     display: flex;
     flex-direction: column;
@@ -365,4 +369,211 @@ header .container .navbar .links li a.botao-login:hover {
     justify-content: center;
     text-align: center;
 }
+
+/*-----------------------------------CADASTRO--------------------------------------------*/
+
+.cadastro {
+  height: 100%;
+  background-image: url('../img/imagem cadastro the last.png');
+  background-size: cover;
+  padding: 20px 0;
+}
+
+.seta {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px; 
+  cursor: pointer;
+}
+
+.seta:hover {
+    transform: scale(1.15);
+}
+
+
+.cadastro .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.card-cadastro .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.card-cadastro .logo img {
+   width: 160px;
+   height: auto;
+   margin-top: -40px;
+   margin-bottom: -90px;
+}
+
+.cartao {
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(28, 27, 27, 0.800);
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  flex-direction: column;
+  height: fit-content;
+  padding: 0 40px 30px 40px;
+  margin: 0 auto;
+  position: relative;
+}
+.cartao h2 {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.formulario {
+  display: flex;
+  height: 90%;
+  width: 80%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.formulario span {
+  font-family: "Oswald";
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 5px;
+}
+
+.formulario input {
+  border: 1px solid white;
+  background-color: #1a1a1ae0;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px 5px;
+  margin: 0;
+}
+
+.formulario select {
+  border: 2px solid #32b9cd;
+  background-color: white;
+  color: gray;
+  
+  height: 36px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 20px 0;
+}
+
+.botao {
+  cursor: pointer;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  border: 0;
+  border-radius: 20px;
+
+  font-size: 25px;
+  color: #fff;
+  background-color: black;
+  width: 150px;
+  height: 40px;
+  align-self: center;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background-color: #9D833C; 
+  transform: scale(1.05);
+  box-shadow: 0 0 5px rgba(151, 132, 45, 0.536);
+}
+
+.card-cadastro h2 {
+    font-family:"Bebas Neue", sans-serif ;
+    font-size: 40px;
+    font-weight: 100;
+    padding-bottom:5px;
+}
+  
+.card-cadastro h3 {
+    font-family: "Oswald";
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.mensagem {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    font-family: "Oswald";
+    font-size: 20px;
+    font-weight: 350;
+}
+
+.mensagem a {
+    list-style: none;
+    margin-left: 8px;
+    color:#9D833C ;
+}
+
+.mensagem a:hover {
+    transform: scale(1.1);
+}
+
+.login {
+  height: 100%;
+  background-image: url('../img/imagem_login.webp');
+  background-size: cover;
+  padding: 20px 0;
+}
+
+.login .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-login .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.card-login .logo img {
+   width: 160px;
+   height: auto;
+   margin-top: -40px;
+   margin-bottom: -80px;
+}
+
+.card-login h2 {
+    font-family:"Bebas Neue", sans-serif ;
+    font-size: 40px;
+    font-weight: 100;
+    padding-bottom:5px;
+}
+  
+.card-login h3 {
+    font-family: "Oswald";
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.aviso {
+    font-family: "Oswald";
+    margin-top: 15px;
+    color: #9D833C;
+}
+
 

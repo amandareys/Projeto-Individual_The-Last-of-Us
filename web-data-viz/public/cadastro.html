@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Projeto Looh for the light | cadastro</title>
+
+</head>
+
+<body>
+    <!-- <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logo.png" alt="logo Look for the light">
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="personagens.html">Personagens</a></li>
+                    <li><a href="criaturas.html">Criaturas</a></li>
+                    <li><a href="dashboards.html">Dashboards</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="login.html" class="botao-login">Entrar</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </header> -->
+    <div class="cadastro">
+
+        <div class="container">
+            <div class="cartao card-cadastro">
+                <a href="index.html"><img src="img/seta.svg" class="seta"></a>
+                <div class="logo">
+                    <img src="img/png_vagalume.png" alt="simbolo vagalumes">
+                </div>
+                <h2>Sua jornada começa aqui</h2>
+                <h3>Crie sua conta</h3>
+                <div class="aviso" id="div_mensagem"></div>
+                <div class="formulario">
+                    <div class="campo">
+                        <span>Nome:</span>
+                        <input id="nome_input" type="text" placeholder="Seu nome" />
+                    </div>
+                    <div class="campo">
+                        <span>E-mail:</span>
+                        <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+                    </div>
+                    <div class="campo">
+                        <span>Senha:</span>
+                        <input id="senha_input" type="password" placeholder="******" />
+                    </div>
+                    <div class="campo">
+                        <span>Confirmação da Senha:</span>
+                        <input id="confirmacao_senha_input" type="password" placeholder="******" />
+                    </div>
+                    <button onclick="cadastrar()" class="botao">Cadastrar</button>
+                    <p class="mensagem">Ja possui uma conta?<a href="login.html">Faça login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="footer">
+        <div class="container">
+            <h4>Feito com amor por Amanda &hearts; SPTech &copy; 2026</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div> -->
+
+</body>
+<script>
+    function cadastrar() {
+        nome = nome_input.value;
+        email = email_input.value;
+        senha = senha_input.value;
+        confirmar_senha = confirmacao_senha_input.value;
+
+        if (nome.trim() == "" || email.trim() == "" || senha.trim() == "" || confirmar_senha.trim() == "") {
+            div_mensagem.innerHTML = `Preencha todos os campos`;
+            return;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("Estou no then do cadastrar")
+            if (resposta.ok) {
+                window.location = "./login.html"
+            }
+        }).catch(function (resposta) {
+            console.log("ERRO: ", resposta)
+        })
+    }
+</script>
+
+</html>
