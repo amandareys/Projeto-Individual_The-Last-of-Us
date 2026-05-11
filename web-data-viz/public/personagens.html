@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0f81e65dc9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Projeto Looh for the light | criaturas</title>
+</head>
+
+<body onload="exibirCardPersonagem('joel1')">
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logoImg.png" alt="logo Look for the light">
+                </div>
+                <ul id="lista-navbar" class="links">
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="personagens-container">
+
+        <div class="topo">
+            <h3>Personagens</h3>
+            <p>Sobreviventes e suas histórias</p>
+        </div>
+
+        <div class="conteudo-geral-personagens">
+
+            <!-- MENU -->
+            <div class="menu-lateral-personagens">
+
+                <div onclick="exibirCardPersonagem('joel1')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/joel1-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Joel</h3>
+                        <p>PROTAGONISTA</p>
+                    </div>
+                </div>
+
+                <div onclick="exibirCardPersonagem('ellie1')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/ellie1-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Ellie</h3>
+                        <p>IMUNE</p>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('sarah')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/sarah-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Sarah</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('tess')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/tess-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Tess</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('marlene')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/marlene-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Marlene</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('tommy1')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/tommy1-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Tommy</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('maria')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/maria-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Maria</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('billy')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/billy-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Bill</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="card-joel1" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>JOEL MILLER</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>“A gente faz o que tem que fazer.”</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Joel é um sobrevivente experiente que perdeu sua filha no início do surto.
+                                Cínico e fechado, ele é contratado para levar Ellie até os Vaga-lumes,
+                                sem imaginar que essa jornada mudaria o significado de família para sempre.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>PROTETOR</span>
+                                <span>PRAGMÁTICO</span>
+                                <span>TRAUMATIZADO</span>
+                                <span>LEAL</span>
+                                <span>SOBREVIVENTE</span>
+                                <span>DESCONFIADO</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Vinculo Paternal</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">TOMMY</p>
+                                    <span class="descricao">Irmão</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">TESS</p>
+                                    <span class="descricao">Aliada</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/joel1.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> mataram o bichinho</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">51</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Sobrevivente</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Austin, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="card-ellie1" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>ELLIE Williams</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Depois de tudo que passamos... Tudo que eu fiz, não pode ser em vão."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Ellie é uma órfã que cresceu em uma zona de quarentena militarizada. Após ser mordida e não se transformar, 
+                                ela descobre ser imune à infecção por Cordyceps. Determinada e resiliente, ela atravessa o país ao lado de Joel, 
+                                desenvolvendo um laço profundo enquanto enfrenta os perigos de um mundo devastado.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>IMUNE</span>
+                                <span>CORAJOSA</span>
+                                <span>BOCA-SUJA</span>
+                                <span>LEAL</span>
+                                <span>RESILIENTE</span>
+                                <span>CURIOSA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Vinculo Paternal</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">RILEY</p>
+                                    <span class="descricao">Melhor Amiga</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">Marlene</p>
+                                    <span class="descricao">Aliada</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/ellie1.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> mataram o bichinho</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">14</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Chave para a Cura</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Boston, Massachusettss</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="card-sarah" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>SARAH MILLER</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Aqui. Você ficava reclamando do seu relógio quebrado, então eu pensei, sabe. Você gosta?"</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Sarah é a filha de Joel e uma adolescente típica. Ela demonstra uma maturidade precoce 
+                                e uma relação de muita cumplicidade e carinho com o pai. Sua vida muda drasticamente na noite do seu aniversário,
+                                 quando o surto do fungo Cordyceps começa a destruir a sociedade.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>CARINHOSA</span>
+                                <span>BEM-HUMORADA</span>
+                                <span>MATURA</span>
+                                <span>ESPERTA</span>
+                                <span>DEDICADA</span>
+                                <span>ATLÉTICA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Pai</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">TOMMY</p>
+                                    <span class="descricao">Tio</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">MARIA</p>
+                                    <span class="descricao">Tia Paterna</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/sarah.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto morto">FALECIDA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span>Ferimento por arma de fogo, assassinada por militares.</span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">12</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Estudante</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Austin, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="card-tess" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Tess Servopoulos</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Eu posso ganhar algum tempo pra você, mas você tem que correr... Eu não vou me transformar em uma daquelas coisas."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Tess é uma sobrevivente endurecida e parceira de longa data de Joel no mercado negro de Boston.
+                                 Respeitada e temida no submundo da Zona de Quarentena, ela é a força motriz que convence Joel a aceitar a
+                                 missão de contrabandear Ellie. Ela demonstra uma coragem inabalável ao colocar o destino da humanidade acima de sua própria vida.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>ESTRATEGISTA</span>
+                                <span>DETERMINADA</span>
+                                <span>AUTORITÁRIA</span>
+                                <span>LEAL</span>
+                                <span>PRAGMÁTICA</span>
+                                <span>RESILIENTE</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Parceiro de negócios e aliado</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Protegida</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">MARLENE</p>
+                                    <span class="descricao">Conhecida de negócios</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/tess.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto morto">FALECIDA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span>Sacrifício em combate após infecção por Cordyceps.</span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">30</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Contrabandista</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Boston, Massachusetts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="card-marlene" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Marlene</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Não há outra forma. Ela é a nossa única chance."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Marlene é a líder dos Vagalumes, um grupo de milícia revolucionária que luta contra o regime militar 
+                                da FEDRA. Amiga próxima da mãe de Ellie, ela prometeu cuidar da menina. Marlene carrega o peso de 
+                                liderar uma resistência desesperada e toma a difícil decisão de enviar Ellie com Joel para tentar 
+                                encontrar uma cura para a humanidade.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>LÍDER</span>
+                                <span>DETERMINADA</span>
+                                <span>IDEALISTA</span>
+                                <span>SACRIFICADA</span>
+                                <span>ESTRATEGISTA</span>
+                                <span>SOFRIDA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Guardiã </span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Conhecido</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ANNA</p>
+                                    <span class="descricao">Conhecida de negócios</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/marlene.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto morto">FALECIDA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Ferimento por arma de fogo, assassinada por Joel</span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">40</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Líder dos Vagalumes</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Boston, Massachusetts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="card-tommy1" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Tommy</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Minha causa é minha família agora."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Tommy é o irmão mais novo de Joel e ex-membro dos Vagalumes. Após anos sobrevivendo 
+                                ao lado do irmão em condições brutais, ele buscou um propósito maior e acabou fundando
+                                uma comunidade próspera em Jackson, Wyoming. Tommy é um atirador de elite excepcional
+                                e possui um senso de moralidade e esperança que muitas vezes contrasta com o pragmatismo de Joel.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>HABILIDOSO</span>
+                                <span>IDEALISTA</span>
+                                <span>PROTETOR</span>
+                                <span>DETERMINADO</span>
+                                <span>ATIRADOR</span>
+                                <span>LÍDER</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Irmão</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">MARIA</p>
+                                    <span class="descricao">Esposa</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">"Sobrinha"</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/tommy1.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span>SFerimento por arma de fogo, assassinada por Joel.</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">45</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Líder da comunidade de Jackson</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Austin, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="card-maria" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Maria</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Basta uma. Uma mancada e eu me transformo em uma daquelas viúvas. Entendeu?"</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Maria é a líder da próspera comunidade de Jackson. Antes do surto, ela era advogada, e usou suas habilidades de organização 
+                                e liderança para ajudar a construir um refúgio seguro para centenas de pessoas. Ela é uma líder 
+                                protetora com os seus, garantindo que a eletricidade, a comida e a segurança da cidade funcionem perfeitamente.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>LÍDER</span>
+                                <span>PRAGMÁTICA</span>
+                                <span>PROTETORA</span>
+                                <span>INTELIGENTE</span>
+                                <span>DIPLOMÁTICA</span>
+                                <span>RESERVADA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">TOMMY</p>
+                                    <span class="descricao">Marido</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Cunhado</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">"Sobrinha"</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/maria.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span>SFerimento por arma de fogo, assassinada por Joel.</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">42</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Líder da comunidade de Jackson</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Jackson, Wyoming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="card-billy" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Bill</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Há um motivo para eu ainda estar vivo e eles não. É porque eu não me importo com ninguém."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Bill é um sobrevivente solitário, altamente habilidoso e paranoico que mantém uma cidade inteira (Lincoln) protegida 
+                                por armadilhas e explosivos. Ele vive isolado após a perda de seu parceiro, Frank, e possui uma dívida com Joel, o que o 
+                                leva a ajudar relutantemente na busca por peças para um carro.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>SOLITÁRIO</span>
+                                <span>PARANOICO</span>
+                                <span>HABILIDOSO</span>
+                                <span>GROSSEIRO</span>
+                                <span>SOBREVIVENTE</span>
+                                <span>ENGENHOSO</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Dívida de negócios</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">FRANK</p>
+                                    <span class="descricao">Ex-Parceiro</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">"Hostilidade" mútua</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/billy.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span>SFerimento por arma de fogo, assassinada por Joel.</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">50</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Especialista em armadilhas</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Lincoln, Massachusetts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="navbar.js"></script>
+<script>
+    alterarNavbar()
+    let criaturas = [
+        {
+            nome: "corredores",
+            nivel_perigo: 20,
+            perigo: "baixo"
+        },
+        {
+            nome: "espreitadores",
+            nivel_perigo: 40,
+            perigo: "médio"
+        },
+        {
+            nome: "estaladores",
+            nivel_perigo: 60,
+            perigo: "alto"
+        },
+        {
+            nome: "baiacus",
+            nivel_perigo: 80,
+            perigo: "muito alto"
+        },
+        {
+            nome: "reiRatos",
+            nivel_perigo: 100,
+            perigo: "extremo"
+        }
+
+    ];
+
+    function exibirCardPersonagem(personagem) {
+
+        let cards = document.querySelectorAll(".card-personagem")
+
+        for (let i = 0; i < cards.length; i++) {
+
+            if (cards[i].id != "card-" + personagem) {
+
+                cards[i].style.opacity = "0"
+                cards[i].style.display = "none"
+            }
+        }
+
+        let card_selecionado = document.getElementById("card-" + personagem)
+
+        card_selecionado.style.display = "flex"
+
+        setTimeout(() => {
+            card_selecionado.style.opacity = "1"
+        }, 10)
+
+        
+    }
+</script>

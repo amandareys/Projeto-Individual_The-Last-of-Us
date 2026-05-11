@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="quiz-container">
+
+        <div class="topo">
+            <h1>LOOK FOR THE LIGHT</h1>
+
+            <p>
+                Descubra qual personagem mais combina com você.
+            </p>
+
+            <div class="progresso">
+                <div class="barra" id="barra"></div>
+            </div>
+        </div>
+
+        <div class="pergunta">
+            <h2 id="tituloPergunta"></h2>
+        </div>
+
+        <div class="alternativas" id="alternativas"></div>
+
+        <div class="bottom">
+            <span class="contador" id="contador"></span>
+
+            <button class="btn" onclick="proximaPergunta()">
+                Próxima pergunta
+            </button>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    let perguntas = [];
+    let perguntaAtual = 0;
+
+    async function buscarPerguntas() {
+
+        const resposta = await fetch("/quiz/buscarPerguntas");
+        perguntas = await resposta.json();
+
+        mostrarPergunta();
+
+    }
+
+    function mostrarPergunta() {
+
+        let pergunta = perguntas[perguntaAtual];
+
+        tituloPergunta.innerHTML = pergunta.pergunta;
+
+        contador.innerHTML = `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+
+        barra.style.width = `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
+
+        alternativas.innerHTML = "";
+
+        for (let i = 0; i < pergunta.alternativas.length; i++) {
+
+            alternativas.innerHTML += `
+        
+            <div class="opcao" onclick="selecionarAlternativa(${pergunta.alternativas[i].id})">
+                <p>${pergunta.alternativas[i].texto}</p>
+            </div>
+
+        `;
+
+        }
+
+    }
+
+    let alternativaSelecionada = null;
+
+    function selecionarAlternativa(idAlternativa) {
+
+        alternativaSelecionada = idAlternativa;
+
+        let opcoes = document.querySelectorAll(".opcao");
+
+        for (let i = 0; i < opcoes.length; i++) {
+            opcoes[i].style.border = "1px solid rgba(255,255,255,0.08)";
+        }
+
+        event.currentTarget.style.border = "1px solid #657553";
+
+    }
+
+    function proximaPergunta() {
+
+        if (alternativaSelecionada == null) {
+            alert("Selecione uma alternativa");
+            return;
+        }
+
+        perguntaAtual++;
+
+        alternativaSelecionada = null;
+
+        if (perguntaAtual >= perguntas.length) {
+
+            alert("Quiz finalizado");
+
+            return;
+        }
+
+        mostrarPergunta();
+
+    }
+
+    buscarPerguntas();
+</script>

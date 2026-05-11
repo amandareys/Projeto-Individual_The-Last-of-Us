@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Projeto Looh for the light | criaturas</title>
+</head>
+
+<body onload="exibirCardCriatura('corredores')">
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logoImg.png" alt="logo Look for the light">
+                </div>
+                <ul id="lista-navbar" class="links">
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="criaturas-container">
+        <div class="topo">
+            <h3>Criaturas</h3>
+            <p>A evolução da infecção e as ameaças que dominam o mundo</p>
+        </div>
+        <div class="conteudo-geral">
+            <div class="menu-lateral">
+                <div onclick="exibirCardCriatura('corredores')" class="item-lateral">
+                    <div class="item-lateral-img">
+                        <img src="./img/corredores-icon.png" alt="">
+                    </div>
+                    <div class="item-lateral-texto">
+                        <h3>corredores</h3>
+                        <p>ESTÁGIO 1</p>
+                    </div>
+                </div>
+                <div onclick="exibirCardCriatura('espreitadores')" class="item-lateral">
+                    <div class="item-lateral-img">
+                        <img src="./img/stalkers-icon.png" alt="">
+                    </div>
+                    <div class="item-lateral-texto">
+                        <h3>espreitadores</h3>
+                        <p>ESTÁGIO 2</p>
+                    </div>
+                </div>
+                <div onclick="exibirCardCriatura('estaladores')" class="item-lateral">
+                    <div class="item-lateral-img">
+                        <img src="./img/clicker-icon.png" alt="">
+                    </div>
+                    <div class="item-lateral-texto">
+                        <h3>Estaladores</h3>
+                        <p>ESTÁGIO 3</p>
+                    </div>
+                </div>
+                <div onclick="exibirCardCriatura('baiacus')" class="item-lateral">
+                    <div class="item-lateral-img">
+                        <img src="./img/baiacu-icon.png" alt="">
+                    </div>
+                    <div class="item-lateral-texto">
+                        <h3>baiacus</h3>
+                        <p>ESTÁGIO 4</p>
+                    </div>
+                </div>
+                <div onclick="exibirCardCriatura('reiRatos')" class="item-lateral">
+                    <div class="item-lateral-img">
+                        <img src="./img/reiRatos-icon.png" alt="">
+                    </div>
+                    <div class="item-lateral-texto">
+                        <h3>rei dos ratos</h3>
+                        <p>ESTÁGIO FINAL</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="card-corredores" class="card-criatura">
+                <div class="criaturas-info">
+                    <div class="info-texto">
+                        <div class="info-titulo">
+                            <span>corredores</span>
+                            <p>estágio 1 da infecção</p>
+                        </div>
+                        <div class="info-sobre">
+                            <span>sobre</span>
+                            <p>Perderam recentemente o controle para a infecção, mantendo ainda traços humanos visíveis.
+                                São rápidos, imprevisíveis e atacam por impulso.</p>
+                        </div>
+                        <div class="info-comportamento">
+                            <span>comportamento</span>
+                            <ul>
+                                <li>Atacam em corrida direta</li>
+                                <li>Reagem a sons e movimentos</li>
+                                <li>Podem agir de forma desorganizada</li>
+                            </ul>
+                        </div>
+                        <div class="info-enfrentar">
+                            <span>como enfrentar</span>
+                            <ul>
+                                <li>Mantenha distância</li>
+                                <li>Ataques rápidos funcionam bem</li>
+                                <li>Evite ser cercado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-img">
+                        <img src="./img/corredores.png" alt="">
+                    </div>
+                </div>
+                <div class="nivel-perigo">
+                    <div class="perigo-texto">
+                        <p>Nível de perigo</p>
+                        <span class="texto-perigo">baixo</span>
+                    </div>
+                    <div class="perigo-valor">
+                        <div class="perigo-progresso"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="card-espreitadores" class="card-criatura">
+                <div class="criaturas-info">
+                    <div class="info-texto">
+                        <div class="info-titulo">
+                            <span>espreitadores</span>
+                            <p>estágio 2 da infecção</p>
+                        </div>
+                        <div class="info-sobre">
+                            <span>sobre</span>
+                            <p>Estão em uma fase intermediária, combinando características
+                                humanas e fúngicas. São furtivos e inteligentes.</p>
+                        </div>
+                        <div class="info-comportamento">
+                            <span>comportamento</span>
+                            <ul>
+                                <li>Se escondem e emboscam</li>
+                                <li>Observam antes de atacar</li>
+                                <li> Misturam agressividade com furtividade</li>
+                            </ul>
+                        </div>
+                        <div class="info-enfrentar">
+                            <span>como enfrentar</span>
+                            <ul>
+                                <li>Fique atento ao ambiente</li>
+                                <li>Use lanterna com cautela</li>
+                                <li> Ataque antes que eles avancem</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-img">
+                        <img src="./img/stalkers.png" alt="">
+                    </div>
+                </div>
+                <div class="nivel-perigo">
+                    <div class="perigo-texto">
+                        <p>Nível de perigo</p>
+                        <span class="texto-perigo">baixo</span>
+                    </div>
+                    <div class="perigo-valor">
+                        <div class="perigo-progresso"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="card-estaladores" class="card-criatura">
+                <div class="criaturas-info">
+                    <div class="info-texto">
+                        <div class="info-titulo">
+                            <span>estaladores</span>
+                            <p>estágio 3 da infecção</p>
+                        </div>
+                        <div class="info-sobre">
+                            <span>sobre</span>
+                            <p>Perderam a visão, mas desenvolveram uma audição extremamente aguçada.
+                                Se comunicam através de cliques emitidos por eco localização</p>
+                        </div>
+                        <div class="info-comportamento">
+                            <span>comportamento</span>
+                            <ul>
+                                <li>Caçam em grupos</li>
+                                <li>São atraídos por sonss</li>
+                                <li>Extremamente agressivos</li>
+                            </ul>
+                        </div>
+                        <div class="info-enfrentar">
+                            <span>como enfrentar</span>
+                            <ul>
+                                <li>Movimente-se em silêncio</li>
+                                <li>Use objetos para distraí-los</li>
+                                <li>Evite ataque corpo a corpo o máximo possível</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-img">
+                        <img src="./img/clicker.png" alt="">
+                    </div>
+                </div>
+                <div class="nivel-perigo">
+                    <div class="perigo-texto">
+                        <p>Nível de perigo</p>
+                        <span class="texto-perigo">baixo</span>
+                    </div>
+                    <div class="perigo-valor">
+                        <div class="perigo-progresso"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="card-baiacus" class="card-criatura">
+                <div class="criaturas-info">
+                    <div class="info-texto">
+                        <div class="info-titulo">
+                            <span>baiacus</span>
+                            <p>estágio 4 da infecção</p>
+                        </div>
+                        <div class="info-sobre">
+                            <span>sobre</span>
+                            <p>Criaturas extremamente evoluídas, com o corpo coberto
+                                por placas densas de fungo que funcionam como armadura.</p>
+                        </div>
+                        <div class="info-comportamento">
+                            <span>comportamento</span>
+                            <ul>
+                                <li>Muito resistentes</li>
+                                <li>Ataques pesados e lentos</li>
+                                <li>Lançam esporos tóxicos</li>
+                            </ul>
+                        </div>
+                        <div class="info-enfrentar">
+                            <span>como enfrentar</span>
+                            <ul>
+                                <li>Use armas fortes ou explosivos</li>
+                                <li>Mantenha distância sempre</li>
+                                <li>Mire em pontos vulneráveis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-img" style="padding-bottom: 180px; margin-right: 190px;">
+                        <img src="./img/baiacu.png" style="width: 170%; height: 170%;" alt="">
+                    </div>
+                </div>
+                <div class="nivel-perigo">
+                    <div class="perigo-texto">
+                        <p>Nível de perigo</p>
+                        <span class="texto-perigo">baixo</span>
+                    </div>
+                    <div class="perigo-valor">
+                        <div class="perigo-progresso"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="card-reiRatos" class="card-criatura">
+                <div class="criaturas-info">
+                    <div class="info-texto">
+                        <div class="info-titulo">
+                            <span>Rei dos ratos</span>
+                            <p>estágio final da infecção</p>
+                        </div>
+                        <div class="info-sobre">
+                            <span>sobre</span>
+                            <p>Uma massa grotesca formada por vários infectados fundidos.
+                                Representa um dos estágios mais raros e perigosos..</p>
+                        </div>
+                        <div class="info-comportamento">
+                            <span>comportamento</span>
+                            <ul>
+                                <li>Extremamente agressivo</li>
+                                <li>Ataques imprevisíveis</li>
+                                <li>Alta resistência</li>
+                            </ul>
+                        </div>
+                        <div class="info-enfrentar">
+                            <span>como enfrentar</span>
+                            <ul>
+                                <li>Evite confronto direto sempre que possível</li>
+                                <li>Use todo o arsenal disponível</li>
+                                <li> Ataque constantemente para enfraquecer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-img" style="padding-bottom: 260px; margin-right: 400px;">
+                        <img src="./img/reiRatos.png" style="width: 230%; height: 230%;" alt="">
+                    </div>
+                </div>
+                <div class="nivel-perigo">
+                    <div class="perigo-texto">
+                        <p>Nível de perigo</p>
+                        <span class="texto-perigo">baixo</span>
+                    </div>
+                    <div class="perigo-valor">
+                        <div class="perigo-progresso"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="navbar.js"></script>
+<script>
+    alterarNavbar()
+    let criaturas = [
+        {
+            nome: "corredores",
+            nivel_perigo: 20,
+            perigo: "baixo"
+        },
+        {
+            nome: "espreitadores",
+            nivel_perigo: 40,
+            perigo: "médio"
+        },
+        {
+            nome: "estaladores",
+            nivel_perigo: 60,
+            perigo: "alto"
+        },
+        {
+            nome: "baiacus",
+            nivel_perigo: 80,
+            perigo: "muito alto"
+        },
+        {
+            nome: "reiRatos",
+            nivel_perigo: 100,
+            perigo: "extremo"
+        }
+
+    ];
+
+    function exibirCardCriatura(criatura) {
+
+        let cards = document.querySelectorAll(".card-criatura")
+
+        for (let i = 0; i < cards.length; i++) {
+
+            if (cards[i].id != "card-" + criatura) {
+
+                cards[i].style.opacity = "0"
+                cards[i].style.display = "none"
+            }
+        }
+
+        let card_selecionado = document.getElementById("card-" + criatura)
+
+        card_selecionado.style.display = "flex"
+
+        setTimeout(() => {
+            card_selecionado.style.opacity = "1"
+        }, 10)
+
+        for (let i = 0; i < criaturas.length; i++) {
+
+            let criatura_da_vez = criaturas[i]
+
+            if (criatura_da_vez.nome == criatura) {
+
+                let barra = card_selecionado.querySelector(".perigo-progresso")
+                let texto = card_selecionado.querySelector(".texto-perigo")
+
+                barra.style.width = "0%"
+
+                setTimeout(() => {
+                    barra.style.width = criatura_da_vez.nivel_perigo + "%"
+                }, 50)
+
+                texto.innerHTML = criatura_da_vez.perigo
+            }
+        }
+    }
+</script>

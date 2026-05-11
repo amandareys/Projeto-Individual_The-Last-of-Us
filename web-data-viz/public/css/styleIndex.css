@@ -1,4 +1,5 @@
-body,html {
+body,
+html {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -16,6 +17,11 @@ header {
     width: 100%;
     padding: 0;
     margin: 0;
+    height: 12vh;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
 }
 
 .container {
@@ -24,8 +30,27 @@ header {
     display: flex;
     flex-direction: column;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    border-bottom: 4px solid white;
+    width: 100%;
+    height: 12vh;
+    padding: 0 20px;
+}
 
+.logo {
+    width: auto;
+    height: 170%;
+}
 
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+/* 
 .navbar {
     display: flex;
     flex-direction: row;
@@ -53,7 +78,7 @@ header {
     display: block;
     margin-top: -20px;
     margin-bottom: -30px;
-}
+} */
 
 .links {
     display: flex;
@@ -65,13 +90,15 @@ header {
     list-style: none;
 }
 
-.links li {
+.links li,
+p {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
     font-size: large;
 }
 
-.links li a {
+.links p,
+li a {
     text-decoration: none;
     color: white;
     transition: 0.3s;
@@ -92,7 +119,7 @@ header .container .navbar .links li a.botao-login {
     font-size: 20px;
     padding: 8px 30px;
     text-decoration: none;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,15 +133,18 @@ header .container .navbar .links li a.botao-login:hover {
     color: white;
 }
 
-.banner{
+.banner {
     width: 100%;
-    height:865px;
+    height: 88vh;
+    margin-top: 12vh;
+    position: relative;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     background-image: url("../img/img_home.png");
+
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -128,50 +158,52 @@ header .container .navbar .links li a.botao-login:hover {
 
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     padding-left: 30px;
 }
 
 .subtitulo {
     display: flex;
+    width: 55%;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
 }
 
 .subtitulo .linha {
-    width: 200px;
+    width: 40%;
     height: 2px;
     background-color: white;
 }
 
 .divisor-icone {
-    width: 90px; 
+    width: 20%;
     height: auto;
 }
 
 .texto p {
     color: white;
     font-family: 'Oswald', sans-serif;
-    font-size: 24px;
+    font-size: 35px;
     line-height: 1.5;
 }
 
 .texto span {
-    color: #9D833C; 
+    color: #9D833C;
     font-weight: bold;
 }
 
 /* Sobre o projeto*/
 .sobre-projeto {
     width: 100%;
+    height: 92vh;
     padding: 40px 0 50px 0;
     color: white;
-    
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("../img/fundo_esporos.png");
-    
+
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -193,33 +225,44 @@ header .container .navbar .links li a.botao-login:hover {
 
 .sobre-projeto h3 span {
     font-size: 40px;
-    color:#9D833C;
+    color: #9D833C;
     padding: 10px 10px;
 }
 
 .sub-container {
+    height: 60vh;
+    width:90%;
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%;
+    padding: 10px 0;
 }
 
 .cards-texto {
-    width: 55%; 
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 45%;
+    height: 100%;
 }
 
 .img-pai {
-    width: 40%; 
+    height: 100%;
+    width: 50%;
+    transition: 0.3s;
+    cursor: default;
+    border: 2px solid transparent;
+    border-radius: 25px;
 }
 
 .img-pai img {
     width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 25px; 
+    height:100% ;
+    border-radius: 25px;
     border: 2px solid #444;
-   box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 .card {
@@ -227,30 +270,39 @@ header .container .navbar .links li a.botao-login:hover {
     border: 1px solid #444;
     border-radius: 15px;
     padding: 20px;
-    margin-bottom: 20px;
     text-align: left;
     font-family: 'Oswald', sans-serif;
-    font-size: 20px;
+    font-size: 27px;
     line-height: 1.6;
+    flex: 1;
+
+    transition: 0.3s;
+    cursor: default;
+}
+
+.card:hover , .img-pai:hover{
+border-color: #9D833C;
+transform: translateY(-3px);
 }
 
 .subtexto-final {
-    margin-top: 15px;
+    margin-top: 50px;
     color: #9D833C;
     font-family: 'Oswald', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     padding: 0 10%;
 }
 
 .historia {
     width: 100%;
+    height: 95vh;
     padding: 40px 0 50px 0;
     color: white;
-    
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("../img/fundo_esporos2.png");
-    
+
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -260,12 +312,15 @@ header .container .navbar .links li a.botao-login:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 50px;
     padding: 0px 10%;
 }
 
 .imagem-capa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 35%;
 }
 
@@ -276,22 +331,21 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .texto-historia {
-   width: 60%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    align-items:center; 
-    margin-top: -50px;
+    align-items: center;
 }
 
 .texto-historia h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 45px; 
+    font-size: 50px;
     letter-spacing: 2px;
     color: white;
     text-align: center;
     align-self: center;
-    width: 100%;
-    
+    width: 90%;
+
 }
 
 .divisor-historia {
@@ -302,26 +356,26 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .divisor-historia .linha {
-    width: 300px;
+    width: 45%;
     height: 2px;
     background-color: white;
 }
 
 .divisor-historia-icone {
-    width: 100px; 
+    width: 10%;
     height: auto;
 }
 
 .descricao p {
     font-family: 'Oswald', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     text-align: left;
-    line-height: 1.6; 
+    line-height: 1.6;
     color: #e0e0e0;
 }
 
 .descricao span {
-    color: #9D833C; 
+    color: #9D833C;
     font-weight: bold;
 }
 
@@ -329,11 +383,10 @@ header .container .navbar .links li a.botao-login:hover {
     display: flex;
     gap: 20px;
     margin-bottom: 30px;
-    align-self: flex-start;
-    padding-left: 15%;
 }
 
-.botao-aba, .botao-aba-selecionada {
+.botao-aba,
+.botao-aba-selecionada {
     font-family: 'Bebas Neue', sans-serif;
     padding: 10px 40px;
     border-radius: 20px;
@@ -345,7 +398,7 @@ header .container .navbar .links li a.botao-login:hover {
 .botao-aba {
     background-color: #1a1a1a;
     color: white;
-    
+
 }
 
 
@@ -353,7 +406,7 @@ header .container .navbar .links li a.botao-login:hover {
     background-color: #444;
     color: white;
     border-color: #1a1a1a;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .footer {
@@ -362,10 +415,10 @@ header .container .navbar .links li a.botao-login:hover {
     color: white;
     font-family: 'Oswald', sans-serif;
     padding: 20px 0;
-    
+
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     text-align: center;
 }
@@ -373,18 +426,19 @@ header .container .navbar .links li a.botao-login:hover {
 /*-----------------------------------CADASTRO--------------------------------------------*/
 
 .cadastro {
-  height: 100%;
-  background-image: url('../img/imagem cadastro the last.png');
-  background-size: cover;
-  padding: 20px 0;
+    height: 100%;
+    background-image: url('../img/imagem\ cadastro\ the\ last.png');
+    background-position: bottom;
+    background-size: cover;
+    padding: 20px 0;
 }
 
 .seta {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 50px; 
-  cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    cursor: pointer;
 }
 
 .seta:hover {
@@ -393,10 +447,11 @@ header .container .navbar .links li a.botao-login:hover {
 
 
 .cadastro .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
+
 .card-cadastro .logo {
     display: flex;
     justify-content: center;
@@ -405,106 +460,107 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .card-cadastro .logo img {
-   width: 160px;
-   height: auto;
-   margin-top: -40px;
-   margin-bottom: -90px;
+    width: 160px;
+    height: auto;
+    margin-top: -40px;
+    margin-bottom: -90px;
 }
 
 .cartao {
-  width: 100%;
-  max-width: 600px;
-  background-color: rgba(28, 27, 27, 0.800);
-  border: 2px solid black;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  color: white;
-  flex-direction: column;
-  height: fit-content;
-  padding: 0 40px 30px 40px;
-  margin: 0 auto;
-  position: relative;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(28, 27, 27, 0.800);
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    flex-direction: column;
+    height: fit-content;
+    padding: 0 40px 30px 40px;
+    margin: 0 auto;
+    position: relative;
 }
+
 .cartao h2 {
-  margin-top: 0;
-  font-size: 30px;
+    margin-top: 0;
+    font-size: 30px;
 }
 
 .formulario {
-  display: flex;
-  height: 90%;
-  width: 80%;
-  justify-content: space-around;
-  flex-direction: column;
+    display: flex;
+    height: 90%;
+    width: 80%;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 .formulario span {
-  font-family: "Oswald";
-  font-size: 20px;
-  font-weight: 400;
-  padding-bottom: 5px;
+    font-family: "Oswald";
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 5px;
 }
 
 .formulario input {
-  border: 1px solid white;
-  background-color: #1a1a1ae0;
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  padding: 15px 5px;
-  margin: 0;
+    border: 1px solid white;
+    background-color: #1a1a1ae0;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px 5px;
+    margin: 0;
 }
 
 .formulario select {
-  border: 2px solid #32b9cd;
-  background-color: white;
-  color: gray;
-  
-  height: 36px;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
+    border: 2px solid #32b9cd;
+    background-color: white;
+    color: gray;
+
+    height: 36px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0;
 }
 
 .campo {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 20px 0;
 }
 
 .botao {
-  cursor: pointer;
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1px;
-  border: 0;
-  border-radius: 20px;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+    border: 0;
+    border-radius: 20px;
 
-  font-size: 25px;
-  color: #fff;
-  background-color: black;
-  width: 150px;
-  height: 40px;
-  align-self: center;
-  margin-top: 5px;
-  transition: 0.3s;
+    font-size: 25px;
+    color: #fff;
+    background-color: black;
+    width: 150px;
+    height: 40px;
+    align-self: center;
+    margin-top: 5px;
+    transition: 0.3s;
 }
 
 .botao:hover {
-  background-color: #9D833C; 
-  transform: scale(1.05);
-  box-shadow: 0 0 5px rgba(151, 132, 45, 0.536);
+    background-color: #9D833C;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(151, 132, 45, 0.536);
 }
 
 .card-cadastro h2 {
-    font-family:"Bebas Neue", sans-serif ;
+    font-family: "Bebas Neue", sans-serif;
     font-size: 40px;
     font-weight: 100;
-    padding-bottom:5px;
+    padding-bottom: 5px;
 }
-  
+
 .card-cadastro h3 {
     font-family: "Oswald";
     font-size: 25px;
@@ -523,7 +579,7 @@ header .container .navbar .links li a.botao-login:hover {
 .mensagem a {
     list-style: none;
     margin-left: 8px;
-    color:#9D833C ;
+    color: #9D833C;
 }
 
 .mensagem a:hover {
@@ -531,16 +587,17 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .login {
-  height: 100%;
-  background-image: url('../img/imagem_login.webp');
-  background-size: cover;
-  padding: 20px 0;
+    height: 100vh;
+    background-image: url('../img/imagemLogin.png');
+    background-position: bottom;
+    background-size: cover;
+
 }
 
 .login .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .card-login .logo {
@@ -551,19 +608,19 @@ header .container .navbar .links li a.botao-login:hover {
 }
 
 .card-login .logo img {
-   width: 160px;
-   height: auto;
-   margin-top: -40px;
-   margin-bottom: -80px;
+    width: 160px;
+    height: auto;
+    margin-top: -40px;
+    margin-bottom: -80px;
 }
 
 .card-login h2 {
-    font-family:"Bebas Neue", sans-serif ;
+    font-family: "Bebas Neue", sans-serif;
     font-size: 40px;
     font-weight: 100;
-    padding-bottom:5px;
+    padding-bottom: 5px;
 }
-  
+
 .card-login h3 {
     font-family: "Oswald";
     font-size: 25px;
@@ -576,4 +633,781 @@ header .container .navbar .links li a.botao-login:hover {
     color: #9D833C;
 }
 
+.criaturas-container {
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    height: 88vh;
+
+    width: 100%;
+    padding: 20px 35px;
+    margin-top: 12vh;
+
+    overflow: hidden;
+}
+
+.topo {
+    width: 100%;
+    text-align: left;
+}
+
+.topo h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.topo p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    color: #666;
+}
+
+.conteudo-geral {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    width: 100%;
+    flex: 1;
+
+    margin-top: 20px;
+    gap: 20px;
+
+    overflow: hidden;
+}
+
+.item-lateral {
+    background-color: #3635356e;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+
+    border-radius: 10px;
+
+    flex: 1;
+    min-height: 0;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.item-lateral:hover {
+    transform: translateX(10px);
+    box-shadow: 5px 5px 20px #9D833C;
+}
+
+.item-lateral:hover .item-lateral-texto h3 {
+    color: #9D833C;
+}
+
+.item-lateral:hover .item-lateral-texto p {
+    color: white;
+}
+
+.item-lateral-texto {
+    text-align: left;
+    width: 50%;
+}
+
+.item-lateral-texto h3 {
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-size: 35px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.item-lateral-texto p {
+    color: #666;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.item-lateral-img {
+    width: 170px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.item-lateral-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.card-criatura {
+    background-color: #3635356e;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    opacity: 0;
+
+    border-radius: 10px;
+
+    width: 65%;
+    height: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px;
+    transition: opacity 0.35s ease;
+}
+
+.menu-lateral {
+    width: 30%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    height: 100%;
+}
+
+.nivel-perigo {
+    width: 100%;
+    height: 15%;
+
+    background-color: #504e4eb9;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+
+    padding: 10px 20px;
+}
+
+.perigo-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.perigo-texto span {
+    color: rgb(161, 4, 4);
+    font-weight: 900;
+}
+
+.perigo-texto p {
+    font-size: 30px;
+}
+
+.perigo-valor {
+    height: 20%;
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.perigo-progresso {
+    height: 100%;
+    width: 0%;
+    background-color: rgb(161, 4, 4);
+    border-radius: 15px;
+    transition: width 0.5s ease;
+}
+
+.criaturas-info {
+    display: flex;
+    height: 85%;
+    width: 100%;
+    padding: 15px;
+}
+
+.info-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    width: 50%;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    gap: 20px;
+}
+
+.info-titulo {
+    padding: 0;
+    font-size: 48px;
+    color: white;
+    text-align: left;
+}
+
+.info-titulo p {
+    font-size: 25px;
+    color: #666;
+}
+
+.info-sobre span {
+    color: #9D833C;
+    font-size: 28px;
+}
+
+.info-sobre p {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.info-comportamento span {
+    color: #9D833C;
+    font-size: 28px;
+}
+
+.info-comportamento ul {
+    list-style-position: inside;
+}
+
+
+.info-comportamento ul li {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.info-enfrentar span {
+    color: #9D833C;
+    font-size: 28px;
+}
+
+.info-enfrentar ul {
+    list-style-position: inside;
+}
+
+
+.info-enfrentar ul li {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.info-img {
+    width: 50%;
+    height: 100%;
+    margin-right: 70px;
+    padding-bottom: 70px;
+}
+
+.info-img img {
+    width: 130%;
+    height: 130%;
+    object-fit: contain;
+
+}
+
+.btn-parte {
+    padding: 15px 40px;
+    border-radius: 30px;
+
+    background-color: #504e4eb9;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-parte.ativo {
+    background-color: #9d833ca3;
+    border-color: white;
+    pointer-events: none;
+}
+
+.btn-parte:hover {
+    background-color: #393939b9;
+}
+
+.botoes {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.personagens-container {
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 35px;
+    margin-top: 12vh;
+}
+
+/* CONTEÚDO */
+.conteudo-geral-personagens {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* MENU */
+.menu-lateral-personagens {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 100px;
+}
+
+.menu-lateral-personagens::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-lateral-personagens::-webkit-scrollbar-thumb {
+    background: #9D833C;
+    border-radius: 10px;
+}
+
+/* CARD */
+.card-personagem {
+    background-color: #3635356e;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 10px;
+    width: 65%;
+
+
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+
+    padding: 20px;
+    transition: opacity 0.3s;
+}
+
+
+.personagem-status {
+    width: 50%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.personagens-extras {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(157, 131, 60, 0.4);
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+}
+
+/* TOPO */
+.status-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #aaa;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.linha {
+    width: 20px;
+    height: 2px;
+    background: #9D833C;
+}
+
+/* STATUS PRINCIPAL */
+.status-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-texto {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+/* CORES */
+.status-texto.vivo {
+    color: #A4C38F;
+}
+
+.status-texto.morto {
+    color: #e5383598;
+}
+
+/* BOLINHA */
+.bolinha {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.status-texto.vivo + .bolinha {
+    background: #A4C38F;
+}
+
+.status-texto.morto + .bolinha {
+    background: #e5383598;
+}
+
+.status-card {
+    width: 120px;
+    height: 80px;
+
+    background: linear-gradient(135deg, #9D833C, #c2a94b);
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Bebas Neue', sans-serif;
+    color: black;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.status-causa {
+    color: white;
+    font-family: 'Oswald',sans-serif;
+    font-size: 20px;
+}
+
+.causa-titulo {
+    font-family: 'Bebas Neue',sans-serif;
+    letter-spacing: 1px;
+    color: #9D833C;
+}
+
+.personagem-card{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-right: 20px;
+    
+}
+/* CARD */
+.card-info {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 15px;
+
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(157, 131, 60, 0.25);
+    border-radius: 10px;
+    cursor: default;
+
+    transition: 0.3s;
+}
+
+/* HOVER */
+.card-info:hover {
+    border-color: #9D833C;
+    background: rgba(157, 131, 60, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ÍCONE */
+.icon {
+    font-size: 22px;
+    color: #9D833C;
+
+    background: rgba(157, 131, 60, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* BLOCO TEXTO */
+.card-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* TÍTULO */
+.titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: #9D833C;
+    letter-spacing: 1px;
+}
+
+/* VALOR */
+.valor {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+
+
+.personagem-texto {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* NOME */
+.info-titulo h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 70px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* FRASE */
+.info-frase p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: #9D833C;
+    font-style: italic;
+}
+
+/* TÍTULOS SEÇÕES */
+.info-historia span,
+.info-perfil span {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* TEXTO */
+.info-historia p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* TAGS */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags span {
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    border: 1px solid rgba(157, 131, 60, 0.4);
+    background: rgba(0,0,0,0.4);
+
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #ddd;
+    cursor: default;
+
+    transition: 0.3s;
+}
+
+/* HOVER BONITO */
+.tags span:hover {
+    background: rgba(157, 131, 60, 0.2);
+    color: #9D833C;
+    transform: scale(1.05);
+}
+
+.personagem-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+.personagem-img {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: flex-end; /* deixa ela apoiada embaixo */
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.personagem-img img {
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+   
+}
+
+/* TÍTULO */
+.info-relacoes span {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+/* GRID */
+.relacoes-lista {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.relacao-card {
+    min-width: 120px;
+    padding: 8px 15px;
+
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(157, 131, 60, 0.3);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    
+
+    transition: 0.3s;
+}
+
+/* HOVER BONITO */
+.relacao-card:hover {
+    border-color: #9D833C;
+    background: rgba(157, 131, 60, 0.1);
+    transform: translateY(-3px);
+}
+
+/* NOME */
+.relacao-card .nome {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* DESCRIÇÃO */
+.relacao-card .descricao {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.item-lateral-personagem {
+    background-color: #3635356e;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+
+    border-radius: 10px;
+    height: 500px;
+    
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+.item-lateral-personagem-texto {
+    text-align: left;
+    width: 50%;
+}
+
+.item-lateral-personagem-texto h3 {
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-size: 35px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.item-lateral-personagem-texto p {
+    color: #666;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.item-lateral-personagem-img {
+    width: 170px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.item-lateral-personagem-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item-lateral-personagem:hover {
+    transform: translateX(10px);
+    box-shadow: 5px 5px 20px #9D833C;
+}
+
+.item-lateral-personagem:hover .item-lateral-personagem-texto h3 {
+    color: #9D833C;
+}
+
+.item-lateral-personagem:hover .item-lateral-personagem-texto p {
+    color: white;
+}

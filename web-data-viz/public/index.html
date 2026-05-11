@@ -19,15 +19,10 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="img/logo.png" alt="logo Look for the light">
+                    <img src="img/logoImg.png" alt="logo Look for the light">
                 </div>
-                <ul class="links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="personagens.html">Personagens</a></li>
-                    <li><a href="criaturas.html">Criaturas</a></li>
-                    <li><a href="dashboards.html">Dashboards</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="login.html" class="botao-login">Entrar</a></li>
+                <ul id="lista-navbar" class="links">
+
 
                 </ul>
             </div>
@@ -53,36 +48,36 @@
         </div>
     </div>
     <div class="sobre-projeto">
-        <div class="container">
-            <h2>Sobre o projeto</h2>
-            <h3>Minha jornada com the Last of Us começou graças ao <span>meu pai.</span></h3>
-            <div class="sub-container">
-                <div class="cards-texto">
-                    <div class="card">Aos 13 anos, ele me apresentou seu jogo favorito, me ensinou a jogar e a enxergar
-                        a profundidade da história e dos personagens.</div>
-                    <div class="card">A partir desse momento, surgiu meu interesse por esse universo e por muitos
-                        outros. The Last of Us me fez sentir, questionar e enxergar a narrativa de uma forma
-                        completamente diferente.</div>
-                    <div class="card">Mas, acima de tudo, ele se conectou com momentos importantes da minha vida,
-                        fortalecendo minha relação com meu pai, tornando essa experiência ainda mais significativa.
-                    </div>
-                </div>
-                <div class="img-pai">
-                    <img src="img/meupai0.jfif" alt="Foto com meu pai">
+
+        <h2>Sobre o projeto</h2>
+        <h3>Minha jornada com the Last of Us começou graças ao <span>meu pai.</span></h3>
+        <div class="sub-container">
+            <div class="cards-texto">
+                <div class="card">Aos 13 anos, ele me apresentou seu jogo favorito, me ensinou a jogar e a enxergar
+                    a profundidade da história e dos personagens.</div>
+                <div class="card">A partir desse momento, surgiu meu interesse por esse universo e por muitos
+                    outros. The Last of Us me fez sentir, questionar e enxergar a narrativa de uma forma
+                    completamente diferente.</div>
+                <div class="card">Mas, acima de tudo, ele se conectou com momentos importantes da minha vida,
+                    fortalecendo minha relação com meu pai, tornando essa experiência ainda mais significativa.
                 </div>
             </div>
-            <p class="subtexto-final">Este projeto é uma forma de compartilhar essa vivência e mostrar o quanto esse
-                universo pós-apocalíptico pode ser tão especial e único.</p>
+            <div class="img-pai">
+                <img src="img/meupai0.jfif" alt="Foto com meu pai">
+            </div>
         </div>
+        <p class="subtexto-final">Este projeto é uma forma de compartilhar essa vivência e mostrar o quanto esse
+            universo pós-apocalíptico pode ser tão especial e único.</p>
+
     </div>
     <div class="historia">
         <div class="container">
-            <div class="abas">
-                <button id="botao1" class="botao-aba-selecionada" onclick="mostrarParte1()">Parte I</button>
-                <button id="botao2" class="botao-aba" onclick="mostrarParte2()">Parte II</button>
-            </div>
             <div class="sub-container2">
                 <div class="imagem-capa">
+                    <div class="abas">
+                        <button id="botao1" class="botao-aba-selecionada" onclick="mostrarParte1()">Parte I</button>
+                        <button id="botao2" class="botao-aba" onclick="mostrarParte2()">Parte II</button>
+                    </div>
                     <img src="img/capa_jogo1.webp" id="img_capa1" alt="Capa do jogo I">
                 </div>
                 <div class="texto-historia">
@@ -129,7 +124,9 @@
 </body>
 
 </html>
+<script src="navbar.js"></script>
 <script>
+    alterarNavbar()
     function mostrarParte1() {
         document.getElementById("img_capa1").src = "img/capa_jogo1.webp";
         document.getElementById("texto-historia").innerHTML = `
