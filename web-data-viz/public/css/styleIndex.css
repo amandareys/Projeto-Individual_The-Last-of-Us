@@ -1411,3 +1411,137 @@ transform: translateY(-3px);
 .item-lateral-personagem:hover .item-lateral-personagem-texto p {
     color: white;
 }
+
+/* quiz */
+.quiz-page {
+    min-height: 88vh;
+    margin-top: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666;
+}
+
+.quiz-card {
+    width: 720px;
+    background-color: white;
+    padding: 45px;
+    border-radius: 20px;
+}
+
+.quiz-tag {
+    display: inline-block;
+    background-color: #9d833c9a;
+    color: #685522;
+
+    font-size: 13px;
+    font-family: 'Bebas Neue',sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+    border-radius: 30px;
+    padding: 8px 18px;
+    margin-bottom: 22px;
+}
+
+.quiz-card h2 {
+    font-size: 30px;
+    font-family: 'Oswald',sans-serif;
+    margin-bottom: 24px;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.opcao-btn {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    border: 1px solid #9D833C;
+
+    font-family: 'Oswald',sans-serif;
+    font-size: 20px;
+    
+}
+.btn-proxima {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background-color: #9D833C;
+    font-family: 'Bebas Neue',sans-serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.resultado-quiz {
+    margin-top: 25px;
+    padding: 14px;
+    border-radius: 12px;
+    font-family: 'Oswald',sans-serif;
+    border: 1px solid #9D833C;
+
+}
+.none {
+    display: none;
+}
+.quiz-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px 10px;
+
+}
+
+.quiz-final img {
+    width: 180px;
+
+    margin-bottom: 25px;
+
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.3));
+}
+
+.quiz-final h3 {
+    font-size: 42px;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    letter-spacing: 2px;
+
+    color: #9D833C;
+
+    margin-bottom: 10px;
+}
+
+.quiz-final h4 {
+    font-size: 28px;
+
+    margin-bottom: 18px;
+
+    color: #222;
+}
+
+.quiz-final p {
+    width: 85%;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #555;
+
+    margin-bottom: 30px;
+}
+
+

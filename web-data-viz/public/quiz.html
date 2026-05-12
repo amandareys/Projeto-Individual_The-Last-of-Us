@@ -4,118 +4,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0f81e65dc9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Projeto Look for the light | quiz</title>
 </head>
 
 <body>
-    <div class="quiz-container">
 
-        <div class="topo">
-            <h1>LOOK FOR THE LIGHT</h1>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logoImg.png" alt="logo Look for the light">
+                </div>
+                <ul id="lista-navbar" class="links">
 
-            <p>
-                Descubra qual personagem mais combina com você.
-            </p>
 
-            <div class="progresso">
-                <div class="barra" id="barra"></div>
+                </ul>
             </div>
         </div>
+    </header>
 
-        <div class="pergunta">
-            <h2 id="tituloPergunta"></h2>
-        </div>
+    <div class="quiz-page">
 
-        <div class="alternativas" id="alternativas"></div>
+        <div class="quiz-card">
+            <span id="contador_pergunta" class="quiz-tag">Quiz Personalidade</span>
 
-        <div class="bottom">
-            <span class="contador" id="contador"></span>
+            <h2 id="pergunta">Carregando pergunta...</h2>
 
-            <button class="btn" onclick="proximaPergunta()">
-                Próxima pergunta
+            <div class="opcoes" id="opcoes"></div>
+
+            <div id="resultado_quiz" class="resultado-quiz none"></div>
+
+            <button id="btn_proxima" class="btn-proxima none" onclick="proximaPergunta()">
+                Próxima
             </button>
         </div>
 
     </div>
+    <script src="./navbar.js"></script>
+    <script>
+        alterarNavbar();
+
+        let perguntas = [
+            {
+                pergunta: "Quando Joel teve que escolher entre salvar Ellie ou a humanidade, o que você faria?",
+
+                opcoes: [
+                    "Salvaria quem eu amo, independente das consequências",
+                    "Pensaria no bem maior, mesmo sendo difícil",
+                    "Tentaria encontrar uma solução alternativa",
+                    "Ficaria emocionalmente dividido"
+                ],
+
+                correta: 0,
+
+                personagem: "Joel"
+            },
+
+            {
+                pergunta: "Você continuaria uma jornada mesmo sabendo que pode perder tudo?",
+
+                opcoes: [
+                    "Sim, iria até o fim",
+                    "Só se fosse por alguém importante",
+                    "Depende do que está em jogo",
+                    "Não, prefiro preservar o que tenho"
+                ],
+
+                correta: 1,
+
+                personagem: "Abby"
+            },
+
+            {
+                pergunta: "Se você pudesse apagar um erro do passado:",
+
+                opcoes: [
+                    "Faria qualquer coisa para mudar",
+                    "Mudaria, mas aceito as consequências",
+                    "Não mudaria, me tornou mais forte",
+                    "Aprenderia com ele e seguiria em frente"
+                ],
+
+                correta: 3,
+
+                personagem: "Lev"
+            },
+
+            {
+                pergunta: "Em um mundo caótico, o que mais te guia?",
+
+                opcoes: [
+                    "Proteger quem eu amo",
+                    "Fazer o que é certo",
+                    "Buscar justiça",
+                    "Manter equilíbrio e segurança"
+                ],
+
+                correta: 0,
+
+                personagem: "Joel"
+            }
+        ];
+
+        let perguntaAtual = 0;
+        let respondeu = false;
+
+        function carregarPergunta() {
+
+            respondeu = false;
+
+            let perguntaObj = perguntas[perguntaAtual];
+
+            pergunta.innerHTML = perguntaObj.pergunta;
+
+            contador_pergunta.innerHTML =
+                `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+
+            resultado_quiz.classList.add("none");
+
+            btn_proxima.classList.add("none");
+
+            opcoes.innerHTML = "";
+
+            for (let i = 0; i < perguntaObj.opcoes.length; i++) {
+
+                opcoes.innerHTML += `
+        
+            <button class="opcao-btn" onclick="responder(${i}, this)">
+                ${perguntaObj.opcoes[i]}
+            </button>
+
+        `;
+            }
+        }
+
+        function responder(indice, botao) {
+
+            if (respondeu) return;
+
+            respondeu = true;
+
+            let botoes = document.querySelectorAll(".opcao-btn");
+
+            for (let i = 0; i < botoes.length; i++) {
+                botoes[i].classList.remove("opcao-selecionada");
+            }
+
+            botao.classList.add("opcao-selecionada");
+
+            resultado_quiz.innerHTML =
+                `Essa resposta se aproxima mais de: ${perguntas[perguntaAtual].personagem}`;
+
+            resultado_quiz.classList.remove("none");
+
+            btn_proxima.classList.remove("none");
+        }
+
+        function proximaPergunta() {
+
+            perguntaAtual++;
+
+            if (perguntaAtual < perguntas.length) {
+
+                carregarPergunta();
+
+            } else {
+
+                finalizarQuiz();
+
+            }
+
+        }
+
+       function finalizarQuiz() {
+
+    let personagemFinal = "Joel";
+
+    pergunta.innerHTML = "";
+
+    contador_pergunta.innerHTML = "Resultado final";
+
+    opcoes.innerHTML = `
+    
+        <div class="quiz-final">
+
+            <img src="img/pers/joel1-icon.png">
+
+            <h3>
+                VOCÊ É O JOEL
+            </h3>
+
+            <h4>
+                Protetor, intenso e disposto a tudo por quem ama.
+            </h4>
+
+            <p>
+                Assim como Joel, você é alguém extremamente leal às pessoas
+                importantes da sua vida. Mesmo em situações difíceis, suas
+                escolhas costumam ser guiadas pelo sentimento e pela proteção
+                daqueles que você ama.
+            </p>
+
+    
+
+        </div>
+
+    `;
+
+    resultado_quiz.classList.add("none");
+
+    btn_proxima.classList.add("none");
+
+}
+
+        carregarPergunta();
+    </script>
+
 </body>
 
 </html>
-<script>
-    let perguntas = [];
-    let perguntaAtual = 0;
-
-    async function buscarPerguntas() {
-
-        const resposta = await fetch("/quiz/buscarPerguntas");
-        perguntas = await resposta.json();
-
-        mostrarPergunta();
-
-    }
-
-    function mostrarPergunta() {
-
-        let pergunta = perguntas[perguntaAtual];
-
-        tituloPergunta.innerHTML = pergunta.pergunta;
-
-        contador.innerHTML = `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
-
-        barra.style.width = `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
-
-        alternativas.innerHTML = "";
-
-        for (let i = 0; i < pergunta.alternativas.length; i++) {
-
-            alternativas.innerHTML += `
-        
-            <div class="opcao" onclick="selecionarAlternativa(${pergunta.alternativas[i].id})">
-                <p>${pergunta.alternativas[i].texto}</p>
-            </div>
-
-        `;
-
-        }
-
-    }
-
-    let alternativaSelecionada = null;
-
-    function selecionarAlternativa(idAlternativa) {
-
-        alternativaSelecionada = idAlternativa;
-
-        let opcoes = document.querySelectorAll(".opcao");
-
-        for (let i = 0; i < opcoes.length; i++) {
-            opcoes[i].style.border = "1px solid rgba(255,255,255,0.08)";
-        }
-
-        event.currentTarget.style.border = "1px solid #657553";
-
-    }
-
-    function proximaPergunta() {
-
-        if (alternativaSelecionada == null) {
-            alert("Selecione uma alternativa");
-            return;
-        }
-
-        perguntaAtual++;
-
-        alternativaSelecionada = null;
-
-        if (perguntaAtual >= perguntas.length) {
-
-            alert("Quiz finalizado");
-
-            return;
-        }
-
-        mostrarPergunta();
-
-    }
-
-    buscarPerguntas();
-</script>
