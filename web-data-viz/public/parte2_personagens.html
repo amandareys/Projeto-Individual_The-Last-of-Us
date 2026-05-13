@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0f81e65dc9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Projeto Look for the light | criaturas</title>
+</head>
+
+<body onload="exibirCardPersonagem('joel2')">
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logoImg.png" alt="logo Look for the light">
+                </div>
+                <ul id="lista-navbar" class="links">
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="personagens-container">
+
+        <div class="topo">
+            <h3>Personagens</h3>
+            <p>Sobreviventes e suas histórias</p>
+        </div>
+
+        <div class="conteudo-geral-personagens" id="conteudo_geral_parte2">
+
+            <!-- MENU -->
+            <div class="menu-lateral-personagens">
+
+                <div class="botoes-menu-lateral">
+                    <button>PARTE I</button>
+                    <button class="btn-parte-ativo">PARTE II</button>
+                </div>
+
+                <div onclick="exibirCardPersonagem('joel2')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/joel2-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Joel</h3>
+                        <p>PROTAGONISTA</p>
+                    </div>
+                </div>
+
+                <div onclick="exibirCardPersonagem('ellie2')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/ellie2-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Ellie</h3>
+                        <p>IMUNE</p>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('abby')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/abby-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Abby</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('dina')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/dina-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Dina</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('jesse')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/jesse-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Jesse</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('yara')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/yara-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Yara</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('lev')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/lev-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>lev</h3>
+                    </div>
+                </div>
+                <div onclick="exibirCardPersonagem('tommy2')" class="item-lateral-personagem">
+                    <div class="item-lateral-personagem-img">
+                        <img src="./img/pers/tommy2-icon.png">
+                    </div>
+                    <div class="item-lateral-personagem-texto">
+                        <h3>Tommy</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="card-joel2" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>JOEL MILLER</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Se o Senhor me desse uma segunda chance... eu faria tudo exatamente igual."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Anos após os eventos da jornada com Ellie, Joel vive em Jackson, Wyoming, onde se tornou
+                                uma figura respeitada e um patrulheiro dedicado. Ele reconstruiu sua vida, estreitou
+                                laços com a comunidade e buscou redimir sua relação com a música e com Ellie. No
+                                entanto, as consequências de suas escolhas no passado o alcançam de forma brutal.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>PROTETOR</span>
+                                <span>RESILIENTE</span>
+                                <span>MÚSICO</span>
+                                <span>AMARGO</span>
+                                <span>EXPERIENTE</span>
+                                <span>VETERANO</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Filha Adotiva</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">TOMMY</p>
+                                    <span class="descricao">Irmão</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">Maria</p>
+                                    <span class="descricao">Cunhada</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/joel2.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto morto">FALECIDO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Torturado e morto por Abby</span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">58</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Patrulheiro de Jackson</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Austin, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-ellie2" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>ELLIE Williams</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Eu vou achar... e vou matar até o último deles."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Agora Ellie vive em Jackson e tenta levar uma vida normal, mas é assombrada pelo peso do
+                                seu passado e pela relação fragilizada com Joel. Após um evento traumático que
+                                interrompe sua paz, o assassinato de Joel ela embarca em uma jornada obsessiva de
+                                vingança até Seattle. Ellie é forçada a confrontar as consequências da violência e o
+                                custo emocional de sua busca por justiça.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>IMUNE</span>
+                                <span>VINGATIVA</span>
+                                <span>HABILIDOSA</span>
+                                <span>MÚSICA</span>
+                                <span>TRAUMATIZADA</span>
+                                <span>INCONSEQUENTE</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Figura Paterna</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">DINA</p>
+                                    <span class="descricao">Namorada</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">JESSE</p>
+                                    <span class="descricao">Amigo</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/ellie2.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> mataram o bichinho</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">19</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Patrulheira de Jackson</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Boston, Massachusettss</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div id="card-abby" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>ABBY ANDERSON</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Você acha que eu deixaria você viver depois disso? Eu te dei uma chance e você desperdiçou."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Abby é uma soldado de elite da Frente de Libertação de Seattle (WLF) e ex-Vagalume. Movida por um desejo de vingança implacável após a perda de seu pai no hospital de Salt Lake City, morto por Joel, ela dedica anos de sua vida ao treinamento físico e militar. Sua jornada em busca de justiça a força a questionar suas próprias lealdades quando ela cruza o caminho de dois irmãos fugitivos de uma seita rival.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>DETERMINADA</span>
+                                <span>MILITARISTA</span>
+                                <span>LEAL</span>
+                                <span>VINGATIVA</span>
+                                <span>CONFLITUOSA</span>
+                                <span>JUSTICEIRA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JERRY ANDERSON</p>
+                                    <span class="descricao">Pai</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">OWEN</p>
+                                    <span class="descricao">Ex-namorado</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">Lev</p>
+                                    <span class="descricao">Protegido</span>
+                                </div>
+                                <div class="relacao-card">
+                                    <p class="nome">Yara</p>
+                                    <span class="descricao">Aliada</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="personagem-img">
+                        <img src="./img/pers/abby.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Torturado e morto por Abby</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">21</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Soldada da WLF</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Salt Lake City, Utah</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-dina" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Dina</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Eu não planejo morrer. Mas se eu morrer... eu quero que seja com você."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Dina é uma habitante de Jackson, conhecida por seu espírito livre, humor sagaz e lealdade profunda. Ela se torna a principal companheira de Ellie em sua jornada para Seattle, servindo como seu suporte emocional e braço direito. Dina é uma sobrevivente capaz que coloca o bem-estar daqueles que ama acima de tudo, mesmo quando confrontada com as decisões mais sombrias de Ellie.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>BEM-HUMORADA</span>
+                                <span>OTIMISTA</span>
+                                <span>LEAL</span>
+                                <span>PROTETORA</span>
+                                <span>HABILIDOSA</span>
+                                <span>EMPÁTICA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Namorada</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">JESSE</p>
+                                    <span class="descricao">Ex-namorado</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">JJ</p>
+                                    <span class="descricao">Filho</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personagem-img">
+                        <img src="./img/pers/dina.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Torturado e morto por Abby</span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">19</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Patrulheira de Jackson</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Albuquerque, Novo México</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-jesse" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Jesse</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Meus pais dizem que eu sou muito prestativo. É um defeito meu."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Jesse é um dos líderes das patrulhas em Jackson e um amigo extremamente leal de Ellie e Dina. Conhecido por seu senso de dever e integridade, ele não hesita em partir sozinho para Seattle quando percebe que suas amigas estão em perigo. Ele é um sobrevivente pragmático que tenta equilibrar a missão de vingança de Ellie com a segurança de todos ao seu redor.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>LÍDER</span>
+                                <span>PRAGMÁTICO</span>
+                                <span>LEAL</span>
+                                <span>ALTRUÍSTA</span>
+                                <span>HABILIDOSO</span>
+                                <span>CORAJOSO</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Amiga</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">Dina</p>
+                                    <span class="descricao">Ex-namorada</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">JJ</p>
+                                    <span class="descricao">Filho</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personagem-img">
+                        <img src="./img/pers/jesse.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto morto">FALECIDO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Ferimento por arma de fogo no rosto, assassinado por Abby  
+                        </span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">20</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Líder de Patrulha em Jackson</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Jackson, Wyoming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div id="card-yara" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Yara</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Nós não somos mais deles. Agora somos apenas nós."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                               Yara era um membro dedicado dos Serafitas (Cicatrizes) junto com seu irmão mais novo, Lev. Após ser declarada apóstata por proteger o irmão, ela foi capturada e punida severamente, perdendo um braço no processo. Sua vida é salva por Abby, o que a leva a questionar toda a ideologia em que foi criada e a formar uma aliança improvável com uma "Lobo" (WLF) para garantir a segurança de Lev.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>PROTETORA</span>
+                                <span>RESILIENTE</span>
+                                <span>LEAL</span>
+                                <span>DEVOTA</span>
+                                <span>DETERMINADA</span>
+                                <span>CORAJOSA</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">LEV</p>
+                                    <span class="descricao">Irmão mais novo</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ABBY</p>
+                                    <span class="descricao">Salvadora</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">MÃE</p>
+                                    <span class="descricao">Relação Rompida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personagem-img">
+                        <img src="./img/pers/yara.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto morto">FALECIDA</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Baleada fatalmente pelos soldados da WLF
+                        </span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">16</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Ex-Cicatriz</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Ilha dos Serafitas (Seattle)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-lev" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>Lev</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Somente quando fraco posso carregar minha verdadeira força."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Lev é um jovem ex-membro dos Serafitas que foi forçado a fugir de sua comunidade após desafiar as tradições rígidas e a identidade que lhe era imposta. Junto com sua irmã, Yara, ele encontra uma aliada improvável em Abby. Lev é extremamente habilidoso com o arco e flecha e possui uma natureza reflexiva e espiritualizada, tentando encontrar seu lugar em um mundo que o persegue por ser quem ele é.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>REFLEXIVO</span>
+                                <span>ARQUEIRO</span>
+                                <span>LEAL</span>
+                                <span>ESPIRITUALIZADO</span>
+                                <span>RESILIENTE</span>
+                                <span>CORAJOSO</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">YARA</p>
+                                    <span class="descricao">Irmã mais velha</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ABBY</p>
+                                    <span class="descricao">Protetora</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">MÃE</p>
+                                    <span class="descricao">Relação traumática</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personagem-img">
+                        <img src="./img/pers/lev.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <!-- <div class="status-causa">
+                            <span><span class="causa-titulo">Causa:</span> Ferimento por arma de fogo no rosto, assassinado por Abby  
+                        </span>
+                        </div> -->
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">13</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Ex-Cicatriz</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Ilha dos Serafitas (Seattle)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-tommy2" class="card-personagem">
+
+                <div class="personagem-info">
+                    <div class="personagem-texto">
+
+                        <div class="info-titulo">
+                            <h1>TOMMY</h1>
+                        </div>
+
+                        <div class="info-frase">
+                            <p>"Eu não sou mais aquele homem de Jackson. Eu sei o que precisa ser feito."</p>
+                        </div>
+
+                        <div class="info-historia">
+                            <span>HISTÓRIA</span>
+                            <p>
+                                Após o evento traumático em Jackson, Tommy é consumido pelo desejo de justiça. Ele parte sozinho para Seattle antes de Ellie, utilizando suas antigas habilidades de atirador de elite para caçar os membros da WLF um por um. A jornada o transforma física e mentalmente, deixando cicatrizes profundas e afetando permanentemente sua vida em família.
+                            </p>
+                        </div>
+
+                        <div class="info-perfil">
+                            <span>PERFIL</span>
+
+                            <div class="tags">
+                                <span>ATIRADOR DE ELITE</span>
+                                <span>OBSESSIVO</span>
+                                <span>AMARGO</span>
+                                <span>EXPERIENTE</span>
+                                <span>DETERMINADO</span>
+                                <span>IMPLACÁVEL</span>
+                            </div>
+                        </div>
+                        <div class="info-relacoes">
+                            <span>RELAÇÕES</span>
+
+                            <div class="relacoes-lista">
+
+                                <div class="relacao-card">
+                                    <p class="nome">JOEL</p>
+                                    <span class="descricao">Irmão</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">MARIA</p>
+                                    <span class="descricao">Esposa</span>
+                                </div>
+
+                                <div class="relacao-card">
+                                    <p class="nome">ELLIE</p>
+                                    <span class="descricao">Sobrinha</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personagem-img">
+                        <img src="./img/pers/tommy2.png" alt="">
+                    </div>
+                </div>
+
+                <div class="personagens-extras">
+                    <div class="personagem-status">
+
+                        <div class="status-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M2 12 H6 L8 8 L11 16 L13 10 L15 12 H22" stroke="#9D833C" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+                            <p>STATUS</p>
+                        </div>
+
+                        <div class="status-main">
+                            <h2 class="status-texto vivo">VIVO</h2>
+                            <span class="bolinha"></span>
+                        </div>
+                        <div class="status-causa">
+                            <span><span class="causa-titulo">Condição:</span> Sobreviveu a um ferimento grave na cabeça e na perna, o que resultou em sequelas motoras e perda de visão em um dos olhos 
+                        </span>
+                        </div>
+
+                    </div>
+                    <div class="personagem-card">
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <p class="titulo">IDADE</p>
+                                <p class="valor">50</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <p class="titulo">FUNÇÃO</p>
+                                <p class="valor">Atirador Solitário</p>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <p class="titulo">ORIGEM</p>
+                                <p class="valor">Austin, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</body>
+
+</html>
+<script src="navbar.js"></script>
+<script>
+    alterarNavbar()
+
+    function exibirCardPersonagem(personagem) {
+
+        let cards = document.querySelectorAll(".card-personagem")
+
+        for (let i = 0; i < cards.length; i++) {
+
+            if (cards[i].id != "card-" + personagem) {
+
+                cards[i].style.opacity = "0"
+                cards[i].style.display = "none"
+            }
+        }
+
+        let card_selecionado = document.getElementById("card-" + personagem)
+
+        card_selecionado.style.display = "flex"
+
+        setTimeout(() => {
+            card_selecionado.style.opacity = "1"
+        }, 10)
+
+
+    }
+</script>

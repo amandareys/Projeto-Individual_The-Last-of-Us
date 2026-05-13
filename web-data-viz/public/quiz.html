@@ -49,83 +49,112 @@
     </div>
     <script src="./navbar.js"></script>
     <script>
+
         alterarNavbar();
 
-        let perguntas = [
-            {
-                pergunta: "Quando Joel teve que escolher entre salvar Ellie ou a humanidade, o que você faria?",
-
-                opcoes: [
-                    "Salvaria quem eu amo, independente das consequências",
-                    "Pensaria no bem maior, mesmo sendo difícil",
-                    "Tentaria encontrar uma solução alternativa",
-                    "Ficaria emocionalmente dividido"
-                ],
-
-                correta: 0,
-
-                personagem: "Joel"
-            },
-
-            {
-                pergunta: "Você continuaria uma jornada mesmo sabendo que pode perder tudo?",
-
-                opcoes: [
-                    "Sim, iria até o fim",
-                    "Só se fosse por alguém importante",
-                    "Depende do que está em jogo",
-                    "Não, prefiro preservar o que tenho"
-                ],
-
-                correta: 1,
-
-                personagem: "Abby"
-            },
-
-            {
-                pergunta: "Se você pudesse apagar um erro do passado:",
-
-                opcoes: [
-                    "Faria qualquer coisa para mudar",
-                    "Mudaria, mas aceito as consequências",
-                    "Não mudaria, me tornou mais forte",
-                    "Aprenderia com ele e seguiria em frente"
-                ],
-
-                correta: 3,
-
-                personagem: "Lev"
-            },
-
-            {
-                pergunta: "Em um mundo caótico, o que mais te guia?",
-
-                opcoes: [
-                    "Proteger quem eu amo",
-                    "Fazer o que é certo",
-                    "Buscar justiça",
-                    "Manter equilíbrio e segurança"
-                ],
-
-                correta: 0,
-
-                personagem: "Joel"
-            }
-        ];
-
+        let perguntas = [];
+        let pontosPersonagem = [];
         let perguntaAtual = 0;
         let respondeu = false;
+
+        function buscarPerguntas() {
+
+            fetch("/quiz/listarPerguntas", {
+                method: "GET"
+            })
+                .then(function (resposta) {
+
+                    if (resposta.ok) {
+
+                        resposta.json().then(function (dados) {
+
+                            organizarPerguntas(dados);
+                            carregarPergunta();
+
+                        });
+
+                    }
+
+                })
+                .catch(function (erro) {
+
+                    console.log("ERRO: ", erro);
+
+                });
+        }
+
+        function organizarPerguntas(perguntasRecebidas) {
+
+            let perguntasOrganizadas = [];
+
+            for (let i = 0; i < perguntasRecebidas.length; i++) {
+
+                let linha = perguntasRecebidas[i];
+
+                let idPergunta = linha.idperguntas;
+                let pergunta_existe = false;
+                let pergunta_indice = -1;
+                for (let b = 0; b < perguntasOrganizadas.length; b++) {
+                    if (perguntasOrganizadas[b].idPergunta == idPergunta) {
+                        pergunta_existe = true;
+                        pergunta_indice = b
+                        break
+                    }
+                }
+
+                if (pergunta_existe) {
+                    perguntasOrganizadas[pergunta_indice].opcoes.push({
+                        texto: linha.alternativa,
+                        personagem: linha.personagem,
+                        pontos: linha.pontos
+                    });
+                } else {
+                    perguntasOrganizadas.push({
+                        idPergunta: idPergunta,
+                        pergunta: linha.pergunta,
+                        opcoes: [{
+                            texto: linha.alternativa,
+                            personagem: linha.personagem,
+                            pontos: linha.pontos
+                        }]
+                    });
+                }
+
+                let personagem_existe = false;
+
+                for (let r = 0; r < pontosPersonagem.length; r++) {
+                    if (pontosPersonagem[r].nome == linha.personagem) {
+                        personagem_existe = true;
+                        break
+                    }
+                }
+
+                if (!personagem_existe) {
+                    pontosPersonagem.push({
+                        "nome": linha.personagem,
+                        "pontos" : 0,
+                        "descricao" : linha.personagem_descricao,
+                        "idPersonagem" : linha.personagem_id
+                    })
+                }
+            }
+
+            console.log(perguntasOrganizadas);
+            perguntas = perguntasOrganizadas;
+        }
 
         function carregarPergunta() {
 
             respondeu = false;
 
-            let perguntaObj = perguntas[perguntaAtual];
-
-            pergunta.innerHTML = perguntaObj.pergunta;
+            let perguntaAtualObj = perguntas[perguntaAtual];
 
             contador_pergunta.innerHTML =
                 `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+
+            pergunta.innerHTML = perguntaAtualObj.pergunta;
+
+            console.log(perguntaAtualObj);
 
             resultado_quiz.classList.add("none");
 
@@ -133,21 +162,27 @@
 
             opcoes.innerHTML = "";
 
-            for (let i = 0; i < perguntaObj.opcoes.length; i++) {
+            for (let i = 0; i < perguntaAtualObj.opcoes.length; i++) {
+
+                let opcao = perguntaAtualObj.opcoes[i];
 
                 opcoes.innerHTML += `
         
-            <button class="opcao-btn" onclick="responder(${i}, this)">
-                ${perguntaObj.opcoes[i]}
+            <button 
+                class="opcao-btn"
+                onclick="responder(${i}, this)">
+                
+                ${opcao.texto}
+
             </button>
 
         `;
             }
         }
 
-        function responder(indice, botao) {
+        
 
-            if (respondeu) return;
+        function responder(indice, botao) {
 
             respondeu = true;
 
@@ -159,10 +194,18 @@
 
             botao.classList.add("opcao-selecionada");
 
-            resultado_quiz.innerHTML =
-                `Essa resposta se aproxima mais de: ${perguntas[perguntaAtual].personagem}`;
+            let opcaoSelecionada =
+                perguntas[perguntaAtual].opcoes[indice];
 
-            resultado_quiz.classList.remove("none");
+            let personagem = opcaoSelecionada.personagem;
+
+            let pontos = opcaoSelecionada.pontos;
+
+            for (let i = 0; i < pontosPersonagem.length; i++ ) {
+                if(pontosPersonagem[i].nome == personagem) {
+                    pontosPersonagem[i].pontos += pontos;
+                }
+            }
 
             btn_proxima.classList.remove("none");
         }
@@ -180,51 +223,79 @@
                 finalizarQuiz();
 
             }
-
         }
 
-       function finalizarQuiz() {
+        function finalizarQuiz() {
 
-    let personagemFinal = "Joel";
+            let personagemFinal = "";
 
-    pergunta.innerHTML = "";
+            let maiorPontuacao = 0;
 
-    contador_pergunta.innerHTML = "Resultado final";
+            let personagem_descricao = "";
 
-    opcoes.innerHTML = `
-    
-        <div class="quiz-final">
+            let personagem_id = 0;
 
-            <img src="img/pers/joel1-icon.png">
+            for (let i = 0; i < pontosPersonagem.length; i++)  {
 
-            <h3>
-                VOCÊ É O JOEL
-            </h3>
+                if (pontosPersonagem[i].pontos > maiorPontuacao) {
 
-            <h4>
-                Protetor, intenso e disposto a tudo por quem ama.
-            </h4>
+                    maiorPontuacao = pontosPersonagem[i].pontos;
 
-            <p>
-                Assim como Joel, você é alguém extremamente leal às pessoas
-                importantes da sua vida. Mesmo em situações difíceis, suas
-                escolhas costumam ser guiadas pelo sentimento e pela proteção
-                daqueles que você ama.
-            </p>
+                    personagemFinal = pontosPersonagem[i].nome;
 
-    
+                    personagem_descricao = pontosPersonagem[i].descricao;
 
-        </div>
+                    personagem_id = pontosPersonagem[i].idPersonagem;
 
-    `;
 
-    resultado_quiz.classList.add("none");
+                }
+            }
+            console.log(pontosPersonagem);
 
-    btn_proxima.classList.add("none");
+            pergunta.innerHTML = "";
 
-}
+            contador_pergunta.innerHTML = "Resultado final";
 
-        carregarPergunta();
+            opcoes.innerHTML = `
+        
+            <div class="quiz-final">
+
+                <h3>
+                    VOCÊ É ${personagemFinal.toUpperCase()}
+                </h3>
+
+                <p>
+                    ${personagem_descricao} <br>
+                    Pontuação total: ${maiorPontuacao}
+                </p>
+
+            </div>
+
+        `;
+
+            resultado_quiz.classList.add("none");
+
+            btn_proxima.classList.add("none");
+
+            fetch("/quiz/salvarResultado",{
+                method : "POST",
+                headers : {
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    idUsuarioServer: sessionStorage.ID_USUARIO,
+                    idPersonagemServer: personagem_id,
+                    pontosServer: maiorPontuacao
+                })
+            }).then(function(resposta){
+                if(resposta.ok){
+                    console.log("Resultado salvo");
+                }
+            })
+        }
+
+        buscarPerguntas();
+
     </script>
 
 </body>

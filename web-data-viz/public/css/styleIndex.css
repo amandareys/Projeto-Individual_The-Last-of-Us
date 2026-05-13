@@ -1203,7 +1203,7 @@ transform: translateY(-3px);
 /* FRASE */
 .info-frase p {
     font-family: 'Oswald', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     color: #9D833C;
     font-style: italic;
 }
@@ -1222,9 +1222,10 @@ transform: translateY(-3px);
 /* TEXTO */
 .info-historia p {
     font-family: 'Oswald', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: #ddd;
     line-height: 1.6;
+    font-weight: 300;
 }
 
 /* TAGS */
@@ -1544,4 +1545,43 @@ transform: translateY(-3px);
     margin-bottom: 30px;
 }
 
+.botoes-menu-lateral {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
 
+.botoes-menu-lateral button {
+    padding: 5px 20px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(157, 131, 60, 0.3);
+    border-radius: 25px;
+    color: white;
+    font-family: 'Oswald';
+    font-size: 30px;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.botoes-menu-lateral button:hover {
+    border-color: #9D833C;
+    background: rgba(157, 131, 60, 0.1);
+}
+
+.botoes-menu-lateral button.btn-parte-ativo {
+    border-color: #9D833C;
+    color: #9D833C;
+    background: rgba(69, 55, 17, 0.1);
+    pointer-events: none;
+}
+
+
+/* quiz */
+
+.opcao-selecionada {
+    background-color: #9d833c9a;
+    color: #685522;
+}
