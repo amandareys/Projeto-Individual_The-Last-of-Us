@@ -13,11 +13,29 @@ function listarPerguntas(req, res) {
         );
 }
 
-function salvarResultado(req,res) {
+function salvarResultado(req, res) {
     let idUsuario = req.body.idUsuarioServer;
-    let idPersonagem = req.body.idPersonagemServer;
+    quizModel.salvarResultado(idUsuario)
+        .then(function (resposta) {
+            let idInserido = resposta.insertId;
+            res.json({
+                idResultado: idInserido
+            });
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao salvar resultado! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function salvarResultadoPerfil(req, res) {
+    let idResultado = req.body.idResultadoServer;
+    let idPerfil = req.body.idPerfilServer;
     let pontos = req.body.pontosServer;
-    quizModel.salvarResultado(idPersonagem, idUsuario, pontos)
+
+    quizModel.salvarResultadoPerfil(idResultado, idPerfil, pontos)
         .then(function (resposta) {
             res.json(resposta)
         }).catch(
@@ -29,7 +47,27 @@ function salvarResultado(req,res) {
         );
 }
 
+function salvarResultadoPersonagem(req, res) {
+    let idResultado = req.body.idResultadoServer;
+    let idPersonagem = req.body.idPersonagemServer;
+    let pontos = req.body.pontosServer;
+
+    quizModel.salvarResultadoPersonagem(idResultado, idPersonagem, pontos)
+        .then(function (resposta) {
+            res.json(resposta)
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao salvar resultado! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 module.exports = {
     listarPerguntas,
-    salvarResultado
+    salvarResultado,
+    salvarResultadoPerfil,
+    salvarResultadoPersonagem
 };
