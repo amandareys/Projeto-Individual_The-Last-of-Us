@@ -14,7 +14,7 @@
     <title>Projeto Look for the light | quiz</title>
 </head>
 
-<body>
+<body onload="verificarQuiz()">
 
     <header>
         <div class="container">
@@ -344,6 +344,7 @@
 
                     salvarResultadoPersonagem(idResultado);
                     salvarResultadoPerfil(idResultado);
+                    sessionStorage.RESPONDEU_QUIZ = "true";
 
                 })
                 .catch(function (erro) {
@@ -416,6 +417,16 @@
                     .catch(function (erro) {
                         console.log(erro);
                     });
+            }
+        }
+
+// verificar se o usuário ja respondeu o quiz
+        function verificarQuiz() {
+
+            // o sessionStorage sempre salva como string, não como verdadeiro ou false
+            if(sessionStorage.RESPONDEU_QUIZ == "true") {
+                alert("Você já respondeu esse quiz, para verificar seu resultado, estamos te redirecionando para a dashboard")
+                window.location = "./dashboards.html"
             }
         }
 
