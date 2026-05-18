@@ -19,5 +19,13 @@ router.post("/salvarResultadoPersonagem", function (req, res) {
     quizController.salvarResultadoPersonagem(req, res);
 })
 
+router.post("/personagensComunidade", function (req, res) {
+    quizController.personagensComunidade(req, res);
+})
+
+router.post("/totalQuizzes", function (req, res) {
+    quizController.totalQuizzes(req, res);
+})
+
 
 module.exports = router;

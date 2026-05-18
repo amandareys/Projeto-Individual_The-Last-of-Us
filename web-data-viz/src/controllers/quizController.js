@@ -64,10 +64,50 @@ function salvarResultadoPersonagem(req, res) {
         );
 }
 
+function personagensComunidade(req,res) {
+
+    quizModel.personagensComunidade()
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao exibir personagens da comunidade! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
+function totalQuizzes(req,res) {
+
+    quizModel.totalQuizzes()
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao exibir p total dos quizzes! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 
 module.exports = {
     listarPerguntas,
     salvarResultado,
     salvarResultadoPerfil,
-    salvarResultadoPersonagem
+    salvarResultadoPersonagem,
+    personagensComunidade,
+    totalQuizzes
 };

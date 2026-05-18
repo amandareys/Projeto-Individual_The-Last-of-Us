@@ -1,5 +1,4 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -84,7 +83,49 @@ function cadastrar(req, res) {
     }
 }
 
+function resultadosPersonagens(req,res) {
+    let idUsuario = req.body.idUsuarioServer;
+
+    usuarioModel.resultadosPersonagens(idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao exibir personagem vencedor! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
+function resultadosPerfil(req,res) {
+    let idUsuario = req.body.idUsuarioServer;
+
+    usuarioModel.resultadosPerfil(idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao exibir perfil do usuário! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    resultadosPersonagens,
+    resultadosPerfil
 }

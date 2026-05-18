@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
@@ -12,7 +14,461 @@
     <link rel="stylesheet" href="css/styleDashboard.css">
     <title>Projeto Look for the light | dashboard</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="img/logoImg.png" alt="logo Look for the light">
+            </div>
+            <a class="menu-item">
+                <span class="text">Dashboard Geral</span>
+            </a>
+            <a class="menu-item">
+                <span class="text">Dashboard Geral</span>
+            </a>
+            <a class="menu-item">
+                <span class="text">Dashboard Geral</span>
+            </a>
+        </div>
+        <div class="conteudo-geral">
+
+            <div class="titulo-dashboard">
+                <h1>Dashboard do Usuário</h1>
+                <p>Veja como suas escolhas definem seu perfil no universo de The Last of Us.</p>
+            </div>
+
+            <!-- KPIs -->
+            <div class="container-kpis">
+
+                <div class="kpi">
+                    <h3>Personagem</h3>
+                    <span id="personagemUsuario">Carregando</span>
+                </div>
+
+                <div class="kpi">
+                    <h3>Compatibilidade</h3>
+                    <span id="compatibilidadeUsuario">Carregando</span>
+                </div>
+
+                <div class="kpi">
+                    <h3>Perfil dominante</h3>
+                    <span id="perfilUsuario">Carregando</span>
+                </div>
+
+                <div class="kpi">
+                    <h3>Total de quizzes</h3>
+                    <span id="totalQuizzes">Carregando</span>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICOS -->
+            <div class="container-graficos">
+
+                <!-- gráfico 1 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>Sua conexão com cada personagem</h2>
+                    </div>
+
+                    <div class="canvas-area">
+                        <canvas id="graficoPersonagens"></canvas>
+                    </div>
+                </div>
+
+                <!-- gráfico 2 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>Seu perfil de sobrevivente</h2>
+                    </div>
+
+                    <div class="canvas-area">
+                        <canvas id="graficoPerfil"></canvas>
+                    </div>
+                </div>
+
+                <!-- gráfico 3 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>Perfil da comunidade</h2>
+                    </div>
+
+                    <div class="canvas-area">
+                        <canvas id="graficoComunidade"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
 </body>
+
 </html>
+<script>
+
+    const idUsuarioServer = sessionStorage.ID_USUARIO;
+
+    fetch("/usuarios/resultadosPersonagens", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuarioServer
+        })
+    })
+        // .then do fetch "resultado da promise do fetch"
+        .then(function (resposta) {
+
+            if (resposta.ok) {
+                return resposta.json(); // cria outra promise
+            }
+
+            throw "Erro ao buscar personagem vencedor";
+
+        })
+        // .then do resposta.json 
+        .then(function (personagens) {
+
+            console.log(personagens);
+
+            document.getElementById("personagemUsuario").innerHTML = personagens[0].personagem;
+
+            let somaPontos = 0;
+
+            for (let i = 0; i < personagens.length; i++) {
+                somaPontos += personagens[i].pontos;
+            }
+
+            let compatibilidade = (personagens[0].pontos / somaPontos) * 100;
+
+            document.getElementById("compatibilidadeUsuario").innerHTML = compatibilidade.toFixed(0) + "%";
+
+            // GRÁFICO DISTRIBUIÇÃO
+
+            let nomes = [];
+            let pontos = [];
+            let cores = [];
+
+            for (let i = 0; i < personagens.length; i++) {
+
+                nomes.push(personagens[i].personagem);
+
+                pontos.push(personagens[i].pontos);
+
+                if (i == 0) {
+                    cores.push('#9D833C');
+                } else {
+                    cores.push('#444');
+                }
+
+            }
+
+            new Chart(
+                document.getElementById('graficoPersonagens'),
+                {
+                    type: 'bar',
+                    data: {
+                        labels: nomes,
+                        datasets: [{
+                            label: 'Pontuação',
+                            data: pontos,
+                            backgroundColor: cores,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+
+                        indexAxis: "y",
+                        responsive: true,
+                        maintainAspectRatio: false,
+
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: 'white'
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: {
+                                    color: 'white'
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    color: 'white'
+                                }
+                            }
+                        }
+                    }
+                }
+            );
+
+        })
+
+        .catch(function (erro) {
+            console.log(erro);
+        });
+
+    // GRAFICO PERFIL USUARIO 
+
+    fetch("/usuarios/resultadosPerfil", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuarioServer
+        })
+    })
+
+        .then(function (resposta) {
+
+            if (resposta.ok) {
+                return resposta.json();
+            }
+
+            throw "Erro ao buscar perfil";
+
+        })
+
+        .then(function (perfil) {
+
+            console.log(perfil);
+
+            document.getElementById("perfilUsuario").innerHTML = perfil[0].perfil;
+
+            // GRÁFICO RADAR
+
+            // vetores do gráfico
+            let nomesPerfil = [];
+            let pontosPerfil = [];
+
+            for (let i = 0; i < perfil.length; i++) {
+
+                nomesPerfil.push(perfil[i].perfil);
+
+                pontosPerfil.push(perfil[i].pontos);
+
+            }
+
+            new Chart(
+                document.getElementById('graficoPerfil'),
+                {
+                    type: 'radar',
+                    data: {
+                        labels: nomesPerfil,
+                        datasets: [{
+                            data: pontosPerfil,
+                            backgroundColor: 'rgba(157, 131, 60, 0.35)',
+                            borderColor: '#9D833C',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#9D833C',
+                            pointBorderColor: '#9D833C',
+                            pointRadius: 2
+                        }]
+                    },
+
+                    options: {
+
+                        responsive: true,
+                        maintainAspectRatio: false,
+
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+
+                        scales: {
+                            r: {
+
+                                min: 0,
+
+                                ticks: {
+                                    display: false
+                                },
+
+                                grid: {
+                                    color: 'rgba(255,255,255,0.08)'
+                                },
+
+                                angleLines: {
+                                    color: 'rgba(255,255,255,0.08)'
+                                },
+
+                                pointLabels: {
+                                    color: '#d9d9d9',
+                                    font: {
+                                        size: 12,
+                                        family: 'Oswald'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            );
+
+
+
+        })
+
+        .catch(function (erro) {
+            console.log(erro);
+        });
+
+    // GRAFICO COMUNIDADE
+    fetch("/quiz/personagensComunidade", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+        .then(function (resposta) {
+
+            if (resposta.ok) {
+                return resposta.json();
+            }
+
+            throw "Erro ao buscar personagens da comunidade";
+
+        })
+
+        .then(function (dados) {
+
+            let contador = {};
+
+            for (let i = 0; i < dados.length; i++) {
+
+                let personagem = dados[i].personagem;
+
+                contador[personagem] =
+                    (contador[personagem] || 0) + 1;
+
+            }
+
+            let personagens = [];
+            let quantidade = [];
+
+            for (let nome in contador) {
+
+                personagens.push(nome);
+                quantidade.push(contador[nome]);
+
+            }
+
+            new Chart(
+                document.getElementById('graficoComunidade'),
+                {
+                    type: 'doughnut',
+
+                    data: {
+                        labels: personagens,
+
+                        datasets: [{
+                            data: quantidade,
+
+                            backgroundColor: [
+                                '#9D833C',
+                                '#726039',
+                                '#52452a',
+                                '#3a3a3a',
+                                '#2a2a2a'
+                            ],
+
+                            borderRadius: 5,
+                            borderWidth: 2,
+                            borderColor: 'white',
+
+                            hoverOffset: 8,
+
+                        }]
+                    },
+
+                    options: {
+
+                        responsive: true,
+                        maintainAspectRatio: false,
+
+                        layout: {
+                            padding: {
+                                bottom: 25
+                            }
+                        },
+
+                        plugins: {
+
+                            legend: {
+
+                                position: 'bottom',
+
+                                labels: {
+
+                                    color: '#d9d9d9',
+
+                                    padding: 30,
+
+                                    usePointStyle: true,
+
+                                    pointStyle: 'circle',
+
+                                    font: {
+                                        family: 'Oswald',
+                                        size: 16
+                                    }
+
+                                }
+
+                            },
+
+                        }
+
+                    }
+
+                }
+            );
+
+        })
+
+        .catch(function (erro) {
+            console.log(erro);
+        });
+
+
+    // TOTAL QUIZZES
+    fetch("/quiz/totalQuizzes", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+        .then(function (resposta) {
+
+            if (resposta.ok) {
+                return resposta.json();
+            }
+
+            throw "Erro ao buscar personagens da comunidade";
+
+        })
+
+        .then(function (dados) {
+
+            totalQuizzes.innerHTML = dados[0].qtd_quizzes;
+
+
+        })
+
+        .catch(function (erro) {
+            console.log(erro);
+        });
+
+</script>
