@@ -30,164 +30,168 @@
         </div>
     </header>
 
-    <div class="quiz-page">
 
-        <div class="quiz-card">
-            <span id="contador_pergunta" class="quiz-tag">Quiz Personalidade</span>
+    <div class="fundo-quiz">
+        <div class="quiz-page">
 
-            <h2 id="pergunta">Carregando pergunta...</h2>
+            <div class="quiz-card">
+                <span id="contador_pergunta" class="quiz-tag">Quiz Personalidade</span>
 
-            <div class="opcoes" id="opcoes"></div>
+                <h2 id="pergunta">Carregando pergunta...</h2>
 
-            <div id="resultado_quiz" class="resultado-quiz none"></div>
+                <div class="opcoes" id="opcoes"></div>
 
-            <button id="btn_proxima" class="btn-proxima none" onclick="proximaPergunta()">
-                Próxima
-            </button>
+                <div id="resultado_quiz" class="resultado-quiz none"></div>
+
+                <button id="btn_proxima" class="btn-proxima none" onclick="proximaPergunta()">
+                    Próxima
+                </button>
+            </div>
         </div>
-
     </div>
-    <script src="./navbar.js"></script>
-    <script>
+</body>
 
-        alterarNavbar();
+<script src="./navbar.js"></script>
+<script>
 
-        let perguntas = [];
-        let pontosPersonagem = [];
-        let pontosPerfil = [];
-        let perguntaAtual = 0;
-        let respondeu = false;
+    alterarNavbar();
 
-        function buscarPerguntas() {
+    let perguntas = [];
+    let pontosPersonagem = [];
+    let pontosPerfil = [];
+    let perguntaAtual = 0;
+    let respondeu = false;
 
-            fetch("/quiz/listarPerguntas", {
-                method: "GET"
-            })
-                .then(function (resposta) {
+    function buscarPerguntas() {
 
-                    if (resposta.ok) {
+        fetch("/quiz/listarPerguntas", {
+            method: "GET"
+        })
+            .then(function (resposta) {
 
-                        resposta.json().then(function (dados) {
+                if (resposta.ok) {
 
-                            organizarPerguntas(dados);
-                            carregarPergunta();
+                    resposta.json().then(function (dados) {
 
-                        });
+                        organizarPerguntas(dados);
+                        carregarPergunta();
 
-                    }
+                    });
 
-                })
-                .catch(function (erro) {
-
-                    console.log("ERRO: ", erro);
-
-                });
-        }
-
-        function organizarPerguntas(perguntasRecebidas) {
-
-            let perguntasOrganizadas = [];
-
-            for (let i = 0; i < perguntasRecebidas.length; i++) {
-
-                let linha = perguntasRecebidas[i];
-
-                let idPergunta = linha.idPerguntas;
-                let pergunta_existe = false;
-                let pergunta_indice = -1;
-
-                for (let b = 0; b < perguntasOrganizadas.length; b++) {
-                    if (perguntasOrganizadas[b].idPergunta == idPergunta) {
-                        pergunta_existe = true;
-                        pergunta_indice = b
-                        break
-                    }
                 }
 
-                if (pergunta_existe) {
-                    perguntasOrganizadas[pergunta_indice].opcoes.push({
+            })
+            .catch(function (erro) {
+
+                console.log("ERRO: ", erro);
+
+            });
+    }
+
+    function organizarPerguntas(perguntasRecebidas) {
+
+        let perguntasOrganizadas = [];
+
+        for (let i = 0; i < perguntasRecebidas.length; i++) {
+
+            let linha = perguntasRecebidas[i];
+
+            let idPergunta = linha.idPerguntas;
+            let pergunta_existe = false;
+            let pergunta_indice = -1;
+
+            for (let b = 0; b < perguntasOrganizadas.length; b++) {
+                if (perguntasOrganizadas[b].idPergunta == idPergunta) {
+                    pergunta_existe = true;
+                    pergunta_indice = b
+                    break
+                }
+            }
+
+            if (pergunta_existe) {
+                perguntasOrganizadas[pergunta_indice].opcoes.push({
+                    texto: linha.alternativa,
+                    personagem: linha.personagem,
+                    pontos: linha.pontos,
+                    perfil: linha.perfil
+                });
+            } else {
+                perguntasOrganizadas.push({
+                    idPergunta: idPergunta,
+                    pergunta: linha.pergunta,
+                    opcoes: [{
                         texto: linha.alternativa,
                         personagem: linha.personagem,
                         pontos: linha.pontos,
                         perfil: linha.perfil
-                    });
-                } else {
-                    perguntasOrganizadas.push({
-                        idPergunta: idPergunta,
-                        pergunta: linha.pergunta,
-                        opcoes: [{
-                            texto: linha.alternativa,
-                            personagem: linha.personagem,
-                            pontos: linha.pontos,
-                            perfil: linha.perfil
-                        }]
-                    });
-                }
+                    }]
+                });
+            }
 
-                let personagem_existe = false;
+            let personagem_existe = false;
 
-                for (let r = 0; r < pontosPersonagem.length; r++) {
-                    if (pontosPersonagem[r].nome == linha.personagem) {
-                        personagem_existe = true;
-                        break
-                    }
-                }
-
-                if (!personagem_existe) {
-                    pontosPersonagem.push({
-                        "nome": linha.personagem,
-                        "pontos": 0,
-                        "descricao": linha.personagem_descricao,
-                        "idPersonagem": linha.idPersonagem
-                    })
-                }
-
-                let perfil_existe = false;
-
-                for (let r = 0; r < pontosPerfil.length; r++) {
-                    if (pontosPerfil[r].nome == linha.perfil) {
-                        perfil_existe = true;
-                        break
-                    }
-                }
-
-                if (!perfil_existe) {
-                    pontosPerfil.push({
-                        "nome": linha.perfil,
-                        "pontos": 0,
-                        "idPerfil": linha.idPerfil
-                    })
+            for (let r = 0; r < pontosPersonagem.length; r++) {
+                if (pontosPersonagem[r].nome == linha.personagem) {
+                    personagem_existe = true;
+                    break
                 }
             }
 
-            console.log(perguntasOrganizadas);
-            perguntas = perguntasOrganizadas;
+            if (!personagem_existe) {
+                pontosPersonagem.push({
+                    "nome": linha.personagem,
+                    "pontos": 0,
+                    "descricao": linha.personagem_descricao,
+                    "idPersonagem": linha.idPersonagem
+                })
+            }
+
+            let perfil_existe = false;
+
+            for (let r = 0; r < pontosPerfil.length; r++) {
+                if (pontosPerfil[r].nome == linha.perfil) {
+                    perfil_existe = true;
+                    break
+                }
+            }
+
+            if (!perfil_existe) {
+                pontosPerfil.push({
+                    "nome": linha.perfil,
+                    "pontos": 0,
+                    "idPerfil": linha.idPerfil
+                })
+            }
         }
 
-        function carregarPergunta() {
+        console.log(perguntasOrganizadas);
+        perguntas = perguntasOrganizadas;
+    }
 
-            respondeu = false;
+    function carregarPergunta() {
 
-            let perguntaAtualObj = perguntas[perguntaAtual];
+        respondeu = false;
 
-            contador_pergunta.innerHTML =
-                `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+        let perguntaAtualObj = perguntas[perguntaAtual];
 
-            pergunta.innerHTML = perguntaAtualObj.pergunta;
+        contador_pergunta.innerHTML =
+            `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
 
-            console.log(perguntaAtualObj);
+        pergunta.innerHTML = perguntaAtualObj.pergunta;
 
-            resultado_quiz.classList.add("none");
+        console.log(perguntaAtualObj);
 
-            btn_proxima.classList.add("none");
+        resultado_quiz.classList.add("none");
 
-            opcoes.innerHTML = "";
+        btn_proxima.classList.add("none");
 
-            for (let i = 0; i < perguntaAtualObj.opcoes.length; i++) {
+        opcoes.innerHTML = "";
 
-                let opcao = perguntaAtualObj.opcoes[i];
+        for (let i = 0; i < perguntaAtualObj.opcoes.length; i++) {
 
-                opcoes.innerHTML += `
+            let opcao = perguntaAtualObj.opcoes[i];
+
+            opcoes.innerHTML += `
         
             <button 
                 class="opcao-btn"
@@ -198,104 +202,104 @@
             </button>
 
         `;
+        }
+    }
+
+
+
+    function responder(indice, botao) {
+
+        respondeu = true;
+
+        let botoes = document.querySelectorAll(".opcao-btn");
+
+        for (let i = 0; i < botoes.length; i++) {
+            botoes[i].classList.remove("opcao-selecionada");
+        }
+
+        botao.classList.add("opcao-selecionada");
+
+        let opcaoSelecionada =
+            perguntas[perguntaAtual].opcoes[indice];
+
+        let personagem = opcaoSelecionada.personagem;
+        let pontos = opcaoSelecionada.pontos;
+
+        let perfil = opcaoSelecionada.perfil;
+
+
+
+        for (let i = 0; i < pontosPersonagem.length; i++) {
+            if (pontosPersonagem[i].nome == personagem) {
+                pontosPersonagem[i].pontos += pontos;
             }
         }
 
-
-
-        function responder(indice, botao) {
-
-            respondeu = true;
-
-            let botoes = document.querySelectorAll(".opcao-btn");
-
-            for (let i = 0; i < botoes.length; i++) {
-                botoes[i].classList.remove("opcao-selecionada");
+        for (let i = 0; i < pontosPerfil.length; i++) {
+            if (pontosPerfil[i].nome == perfil) {
+                pontosPerfil[i].pontos += pontos;
             }
-
-            botao.classList.add("opcao-selecionada");
-
-            let opcaoSelecionada =
-                perguntas[perguntaAtual].opcoes[indice];
-
-            let personagem = opcaoSelecionada.personagem;
-            let pontos = opcaoSelecionada.pontos;
-
-            let perfil = opcaoSelecionada.perfil;
-
-
-
-            for (let i = 0; i < pontosPersonagem.length; i++) {
-                if (pontosPersonagem[i].nome == personagem) {
-                    pontosPersonagem[i].pontos += pontos;
-                }
-            }
-
-            for (let i = 0; i < pontosPerfil.length; i++) {
-                if (pontosPerfil[i].nome == perfil) {
-                    pontosPerfil[i].pontos += pontos;
-                }
-            }
-
-            btn_proxima.classList.remove("none");
         }
 
-        function proximaPergunta() {
+        btn_proxima.classList.remove("none");
+    }
 
-            perguntaAtual++;
+    function proximaPergunta() {
 
-            if (perguntaAtual < perguntas.length) {
+        perguntaAtual++;
 
-                carregarPergunta();
+        if (perguntaAtual < perguntas.length) {
 
-            } else {
+            carregarPergunta();
 
-                finalizarQuiz();
+        } else {
+
+            finalizarQuiz();
+
+        }
+    }
+
+    function finalizarQuiz() {
+
+        let personagemFinal = "";
+        let maiorPontuacaoPersonagem = 0;
+        let personagem_descricao = "";
+
+        let perfilFinal = "";
+        let maiorPontuacaoPerfil = 0;
+
+
+        for (let i = 0; i < pontosPersonagem.length; i++) {
+
+            if (pontosPersonagem[i].pontos > maiorPontuacaoPersonagem) {
+
+                maiorPontuacaoPersonagem = pontosPersonagem[i].pontos;
+
+                personagemFinal = pontosPersonagem[i].nome;
+
+                personagem_descricao = pontosPersonagem[i].descricao;
 
             }
         }
 
-        function finalizarQuiz() {
+        for (let i = 0; i < pontosPerfil.length; i++) {
 
-            let personagemFinal = "";
-            let maiorPontuacaoPersonagem = 0;
-            let personagem_descricao = "";
+            if (pontosPerfil[i].pontos > maiorPontuacaoPerfil) {
 
-            let perfilFinal = "";
-            let maiorPontuacaoPerfil = 0;
+                maiorPontuacaoPerfil = pontosPerfil[i].pontos;
 
+                perfilFinal = pontosPerfil[i].nome;
 
-            for (let i = 0; i < pontosPersonagem.length; i++) {
-
-                if (pontosPersonagem[i].pontos > maiorPontuacaoPersonagem) {
-
-                    maiorPontuacaoPersonagem = pontosPersonagem[i].pontos;
-
-                    personagemFinal = pontosPersonagem[i].nome;
-
-                    personagem_descricao = pontosPersonagem[i].descricao;
-
-                }
             }
+        }
+        console.log(pontosPersonagem);
+        console.log(pontosPerfil);
 
-            for (let i = 0; i < pontosPerfil.length; i++) {
+        pergunta.innerHTML = "";
 
-                if (pontosPerfil[i].pontos > maiorPontuacaoPerfil) {
+        contador_pergunta.innerHTML = "Resultado final";
 
-                    maiorPontuacaoPerfil = pontosPerfil[i].pontos;
-
-                    perfilFinal = pontosPerfil[i].nome;
-
-                }
-            }
-            console.log(pontosPersonagem);
-            console.log(pontosPerfil);
-
-            pergunta.innerHTML = "";
-
-            contador_pergunta.innerHTML = "Resultado final";
-
-            opcoes.innerHTML = `
+        opcoes.innerHTML = `
         
             <div class="quiz-final">
 
@@ -316,122 +320,122 @@
 
         `;
 
-            resultado_quiz.classList.add("none");
+        resultado_quiz.classList.add("none");
 
-            btn_proxima.classList.add("none");
+        btn_proxima.classList.add("none");
 
-            fetch("/quiz/salvarResultado", {
+        fetch("/quiz/salvarResultado", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            })
+        })
+            .then(function (resposta) {
+
+                return resposta.json();
+
+            })
+            .then(function (dados) {
+
+                console.log(dados);
+
+                let idResultado = dados.idResultado;
+
+                console.log("ID RESULTADO:", idResultado);
+
+                salvarResultadoPersonagem(idResultado);
+                salvarResultadoPerfil(idResultado);
+                sessionStorage.RESPONDEU_QUIZ = "true";
+
+            })
+            .catch(function (erro) {
+
+                console.log(erro);
+
+            });
+    }
+
+    buscarPerguntas();
+
+    function salvarResultadoPersonagem(idResultado) {
+
+        for (let i = 0; i < pontosPersonagem.length; i++) {
+
+            let personagemAtual = pontosPersonagem[i];
+
+            fetch("/quiz/salvarResultadoPersonagem", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    idUsuarioServer: sessionStorage.ID_USUARIO
+
+                    idResultadoServer: idResultado,
+                    idPersonagemServer: personagemAtual.idPersonagem,
+                    pontosServer: personagemAtual.pontos
+
                 })
             })
                 .then(function (resposta) {
 
-                    return resposta.json();
-
-                })
-                .then(function (dados) {
-
-                    console.log(dados);
-
-                    let idResultado = dados.idResultado;
-
-                    console.log("ID RESULTADO:", idResultado);
-
-                    salvarResultadoPersonagem(idResultado);
-                    salvarResultadoPerfil(idResultado);
-                    sessionStorage.RESPONDEU_QUIZ = "true";
+                    if (resposta.ok) {
+                        console.log(`Resultado Personagem salvo ${personagemAtual.nome}`);
+                    }
 
                 })
                 .catch(function (erro) {
-
                     console.log(erro);
-
                 });
         }
+    }
 
-        buscarPerguntas();
+    function salvarResultadoPerfil(idResultado) {
 
-        function salvarResultadoPersonagem(idResultado) {
+        for (let i = 0; i < pontosPerfil.length; i++) {
 
-            for (let i = 0; i < pontosPersonagem.length; i++) {
+            let perfilAtual = pontosPerfil[i];
 
-                let personagemAtual = pontosPersonagem[i];
+            fetch("/quiz/salvarResultadoPerfil", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
 
-                fetch("/quiz/salvarResultadoPersonagem", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
+                    idResultadoServer: idResultado,
+                    idPerfilServer: perfilAtual.idPerfil,
+                    pontosServer: perfilAtual.pontos
 
-                        idResultadoServer: idResultado,
-                        idPersonagemServer: personagemAtual.idPersonagem,
-                        pontosServer: personagemAtual.pontos
-
-                    })
                 })
-                    .then(function (resposta) {
+            })
+                .then(function (resposta) {
 
-                        if (resposta.ok) {
-                            console.log(`Resultado Personagem salvo ${personagemAtual.nome}`);
-                        }
+                    if (resposta.ok) {
+                        console.log(`Resultado Perfil salvo ${perfilAtual.nome}`);
+                    }
 
-                    })
-                    .catch(function (erro) {
-                        console.log(erro);
-                    });
-            }
-        }
-
-        function salvarResultadoPerfil(idResultado) {
-
-            for (let i = 0; i < pontosPerfil.length; i++) {
-
-                let perfilAtual = pontosPerfil[i];
-
-                fetch("/quiz/salvarResultadoPerfil", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-
-                        idResultadoServer: idResultado,
-                        idPerfilServer: perfilAtual.idPerfil,
-                        pontosServer: perfilAtual.pontos
-
-                    })
                 })
-                    .then(function (resposta) {
-
-                        if (resposta.ok) {
-                            console.log(`Resultado Perfil salvo ${perfilAtual.nome}`);
-                        }
-
-                    })
-                    .catch(function (erro) {
-                        console.log(erro);
-                    });
-            }
+                .catch(function (erro) {
+                    console.log(erro);
+                });
         }
+    }
 
-// verificar se o usuário ja respondeu o quiz
-        function verificarQuiz() {
+    // verificar se o usuário ja respondeu o quiz
+    function verificarQuiz() {
 
-            // o sessionStorage sempre salva como string, não como verdadeiro ou false
-            if(sessionStorage.RESPONDEU_QUIZ == "true") {
-                alert("Você já respondeu esse quiz, para verificar seu resultado, estamos te redirecionando para a dashboard")
-                window.location = "./dashboards.html"
-            }
+        // o sessionStorage sempre salva como string, não como verdadeiro ou false
+        if (sessionStorage.RESPONDEU_QUIZ == "true") {
+            alert("Você já respondeu esse quiz, para verificar seu resultado, estamos te redirecionando para a dashboard")
+            window.location = "./dashboards.html"
         }
+    }
 
-    </script>
+</script>
 
-</body>
+
 
 </html>
