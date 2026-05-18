@@ -15,6 +15,7 @@ function alterarNavbar() {
     <li><a href="index.html" ${location.endsWith('index.html') ? "style='color: #9d833c;'" : ""}>Home</a></li>
     <li><a href="personagens.html" ${location.endsWith('personagens.html') ? "style='color: #9d833c;'" : ""}>Personagens</a></li>
     <li><a href="criaturas.html" ${location.endsWith('criaturas.html') ? "style='color: #9d833c;'" : ""}>Criaturas</a></li>
+    <li><a href="login.html" ${location.endsWith('login.html') ? "style='color: #9d833c;'" : ""}>Quiz</a></li>
                     <li><a href="cadastro.html">Cadastro</a></li>
                     <li><a href="login.html" class="botao-login">Entrar</a></li>
     `
