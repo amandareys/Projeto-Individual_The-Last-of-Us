@@ -193,6 +193,33 @@ header .container .navbar .links li a.botao-login:hover {
     font-weight: bold;
 }
 
+.btn-home {
+    width: 55%;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-size: 30px;
+    color: white;
+    background-color:#9d833ca3 ;
+    border: 1px solid #9D833C;
+    border-radius: 30px;
+
+    margin-top: 30px;
+    padding: 10px 20px;
+    
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-home:hover {
+    transform: translateY(-3px) scale(1.03);
+    border: 1px solid #584511;
+    background-color: #9d833c9a;
+    color: #bc9e4b;
+}
+
 /* Sobre o projeto*/
 .sobre-projeto {
     width: 100%;
@@ -1430,18 +1457,19 @@ transform: translateY(-3px);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
+    margin-top: 12vh;
     
 }
-.quiz-page {
+.quiz-page, .bloqueio {
     min-height: 88vh;
-    margin-top: 12vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .quiz-card {
+    display: flex;
+    flex-direction: column;
     width: 720px;
     background-color: #202020b0;
     border: 1px solid #2d2d2d;
@@ -1451,6 +1479,8 @@ transform: translateY(-3px);
 }
 
 .quiz-tag {
+    width: 25%;
+    text-align: center;
     display: inline-block;
     background-color: #9d833c9a;
     color: #bc9e4b;
@@ -1469,6 +1499,22 @@ transform: translateY(-3px);
     font-size: 30px;
     font-family: 'Oswald',sans-serif;
     margin-bottom: 24px;
+}
+
+.p_descricao span {
+    color: rgb(204, 198, 198);
+    font-size: 20px;
+    
+}
+
+.p_perfil, .p_perfil span{
+    color: white;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.p_perfil {
+    color: #9D833C;
 }
 
 .opcoes {
@@ -1561,7 +1607,7 @@ transform: translateY(-3px);
     color: #222;
 }
 
-.quiz-final p {
+/* .quiz-final p {
     width: 85%;
 
     font-size: 18px;
@@ -1571,7 +1617,34 @@ transform: translateY(-3px);
     color: #555;
 
     margin-bottom: 30px;
+} */
+
+.botao-dash {
+    width: 80%;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-size: 20px;
+    color: white;
+    background-color:#9d833ca3 ;
+    border: 1px solid #9D833C;
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    transition: 0.3s;
 }
+
+.botao-dash:hover {
+    transform: translateY(-3px) scale(1.03);
+    border: 1px solid #584511;
+    background-color: #9d833c9a;
+    color: #bc9e4b;
+}
+
 
 .botoes-menu-lateral {
     display: flex;

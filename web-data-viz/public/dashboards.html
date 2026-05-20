@@ -21,15 +21,15 @@
             <div class="logo">
                 <img src="img/logoImg.png" alt="logo Look for the light">
             </div>
-            <a class="menu-item">
-                <span class="text">Dashboard Geral</span>
+            <a href="index.html" class="menu-item">
+                <span class="text">Home</span>
             </a>
-            <!-- <a class="menu-item">
-                <span class="text">Dashboard Geral</span>
+            <a href="personagens.html" class="menu-item">
+                <span class="text">Personagens</span>
             </a>
-            <a class="menu-item">
-                <span class="text">Dashboard Geral</span>
-            </a> -->
+            <a href="criaturas.html" class="menu-item">
+                <span class="text">Criaturas</span>
+            </a>
         </div>
         <div class="conteudo-geral">
 
@@ -57,8 +57,8 @@
                 </div>
 
                 <div class="kpi">
-                    <h3>Total de quizzes</h3>
-                    <span id="totalQuizzes">Carregando</span>
+                    <h3>Mesmo resultado</h3>
+                    <span id="pessoasParecidas">Carregando</span>
                 </div>
 
             </div>
@@ -443,29 +443,32 @@
 
 
     // TOTAL QUIZZES
-    fetch("/quiz/totalQuizzes", {
+    fetch("/usuarios/pessoasParecidas", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuarioServer
+        })
     })
-
         .then(function (resposta) {
 
             if (resposta.ok) {
                 return resposta.json();
             }
 
-            throw "Erro ao buscar personagens da comunidade";
+            throw "Erro ao buscar pessoas paecidas";
 
         })
 
         .then(function (dados) {
 
-            totalQuizzes.innerHTML = dados[0].qtd_quizzes;
-
+            document.getElementById("pessoasParecidas")
+                .innerHTML = dados[0].quantidade;
 
         })
+
 
         .catch(function (erro) {
             console.log(erro);

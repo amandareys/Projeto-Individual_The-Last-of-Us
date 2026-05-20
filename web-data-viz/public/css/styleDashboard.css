@@ -98,12 +98,14 @@
 .menu-item {
 
     text-align: center;
+    text-decoration: none;
 
     width: 80%;
 
     background-color: #202020;
     padding: 12px;
     border-radius: 10px;
+    border: 1px solid transparent;
 
     cursor: pointer;
     transition: 0.3s;
@@ -120,8 +122,25 @@
     font-weight: 100;
 }
 
+.menu-item:hover {
+
+    transform: translateX(6px);
+
+    background-color: rgba(157, 131, 60, 0.12);
+
+    border: 1px solid rgba(157, 131, 60, 0.4);
+
+    box-shadow:
+        0 0 18px rgba(157,131,60,0.12);
+}
+
+.menu-item:hover .text {
+    color: white;
+    letter-spacing: 2px;
+}
+
 .logo {
-    width: 80%;
+    width: 95%;
 }
 
 .logo img {

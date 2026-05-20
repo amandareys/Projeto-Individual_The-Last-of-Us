@@ -20,4 +20,8 @@ router.post("/resultadosPerfil",function(req,res) {
     usuarioController.resultadosPerfil(req,res);
 })
 
+router.post("/pessoasParecidas", function (req, res) {
+    usuarioController.pessoasParecidas(req, res);
+})
+
 module.exports = router;

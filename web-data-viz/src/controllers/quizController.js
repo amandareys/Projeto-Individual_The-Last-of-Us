@@ -83,24 +83,7 @@ function personagensComunidade(req,res) {
             );
 }
 
-function totalQuizzes(req,res) {
 
-    quizModel.totalQuizzes()
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao exibir p total dos quizzes! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-}
 
 
 module.exports = {
@@ -109,5 +92,4 @@ module.exports = {
     salvarResultadoPerfil,
     salvarResultadoPersonagem,
     personagensComunidade,
-    totalQuizzes
 };

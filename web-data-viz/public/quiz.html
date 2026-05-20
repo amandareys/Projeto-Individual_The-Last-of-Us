@@ -32,7 +32,30 @@
 
 
     <div class="fundo-quiz">
-        <div class="quiz-page">
+        <div id="div_bloqueio" class="bloqueio none">
+            <div class="quiz-card">
+                <span class="quiz-tag">Já respondido</span>
+                <div class="opcoes">
+                    <div class="quiz-final">
+                        <h3>
+                            VOCÊ É <span id="personagem_bloqueio"></span>
+                        </h3>
+                        <img id="imagem_bloqueio" src="" alt="imagem personagem">
+
+                        <p class="p_descricao">
+                            <span id="descricao_bloqueio"></span> <br>
+                        </p>
+                        <p class="p_perfil">
+                            Perfil: <span id="perfil_bloqueio"></span><br>
+                        </p>
+                    </div>
+                </div>
+
+                <a class="botao-dash" href="dashboards.html">Ir para dashboard</a>
+
+            </div>
+        </div>
+        <div id="div_quiz" class="quiz-page none">
 
             <div class="quiz-card">
                 <span id="contador_pergunta" class="quiz-tag">Quiz Personalidade</span>
@@ -282,6 +305,20 @@
             }
         }
 
+        let passouMaior = false;
+        for (let i = 0; i < pontosPersonagem.length; i++) {
+
+            if (pontosPersonagem[i].pontos == maiorPontuacaoPersonagem) {
+
+                if (passouMaior) {
+                    pontosPersonagem[i].pontos -= 2;
+                } else {
+                    passouMaior = true;
+                }
+                
+            }
+        }
+
         for (let i = 0; i < pontosPerfil.length; i++) {
 
             if (pontosPerfil[i].pontos > maiorPontuacaoPerfil) {
@@ -303,17 +340,18 @@
         
             <div class="quiz-final">
 
+
+
                 <h3>
                     VOCÊ É ${personagemFinal.toUpperCase()}
                 </h3>
+                <img src="${personagemFinal.toLowerCase()}_quiz.png" alt="imagem personagem">
 
-                <p>
-                    ${personagem_descricao} <br>
-                    Pontuação total: ${maiorPontuacaoPersonagem}
+                <p class = "p_descricao">
+                    ${personagem_descricao}
                 </p>
-                <p>
-                    Perfil: ${perfilFinal}<br>
-                    Pontuação Total: ${maiorPontuacaoPerfil}
+                <p class = "p_perfil">
+                    Perfil: <span>${perfilFinal}</span>
                 </p>
 
             </div>
@@ -429,8 +467,89 @@
 
         // o sessionStorage sempre salva como string, não como verdadeiro ou false
         if (sessionStorage.RESPONDEU_QUIZ == "true") {
-            alert("Você já respondeu esse quiz, para verificar seu resultado, estamos te redirecionando para a dashboard")
-            window.location = "./dashboards.html"
+
+            const idUsuarioServer = sessionStorage.ID_USUARIO;
+
+            // alert("Você já respondeu esse quiz, para verificar seu resultado, estamos te redirecionando para a dashboard")
+            // window.location = "./dashboards.html"
+
+            div_bloqueio.classList.remove("none")
+            fetch("/usuarios/resultadosPerfil", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuarioServer
+                })
+            })
+
+                .then(function (resposta) {
+
+                    if (resposta.ok) {
+                        return resposta.json();
+                    }
+
+                    throw "Erro ao buscar perfil";
+
+                })
+
+                .then(function (perfil) {
+
+
+                    document.getElementById("perfil_bloqueio").innerHTML = perfil[0].perfil;
+
+
+                })
+
+                .catch(function (erro) {
+                    console.log(erro);
+                });
+
+
+
+            fetch("/usuarios/resultadosPersonagens", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuarioServer
+                })
+            })
+                // .then do fetch "resultado da promise do fetch"
+                .then(function (resposta) {
+
+                    if (resposta.ok) {
+                        return resposta.json(); // cria outra promise
+                    }
+
+                    throw "Erro ao buscar personagem vencedor";
+
+                })
+                // .then do resposta.json 
+                .then(function (personagens) {
+
+                    console.log(personagens);
+
+                    document.getElementById("personagem_bloqueio").innerHTML = personagens[0].personagem;
+                    imagem_bloqueio.src = `./img/pers/${personagens[0].personagem}_quiz.png`
+
+                    for(let i = 0; i < pontosPersonagem.length; i++) {
+                        if (pontosPersonagem[i].nome == personagens[0].personagem) {
+                            document.getElementById("descricao_bloqueio").innerHTML = pontosPersonagem[i].descricao
+                            break
+                        }
+                    }
+
+                })
+
+                .catch(function (erro) {
+                    console.log(erro);
+                });
+
+        } else {
+            div_quiz.classList.remove("none")
         }
     }
 

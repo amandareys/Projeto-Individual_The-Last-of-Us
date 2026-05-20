@@ -42,9 +42,9 @@
                     Mais do que falar sobre um jogo, esse site é sobre o que <br>
                     ele significou pra mim e <span>como ele se conectou <br>
                         com a minha história.</span>
-
                 </p>
             </div>
+            <button onclick="redirecionarQuiz()" class="btn-home">Quem você seria no fim do mundo?</button>
         </div>
     </div>
     <div class="sobre-projeto">
@@ -180,5 +180,13 @@
         document.getElementById("botao2").classList.remove("botao-aba");
         document.getElementById("botao1").classList.add("botao-aba");
         document.getElementById("botao1").classList.remove("botao-aba-selecionada");
+    }
+
+    function redirecionarQuiz() {
+        if (sessionStorage.ID_USUARIO) {
+            window.location = "./quiz.html"
+        } else {
+            window.location = "./login.html"
+        }
     }
 </script>

@@ -30,7 +30,7 @@ function autenticar(req, res) {
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
                             senha: resultadoAutenticar[0].senha,
-                            respondeuQuiz 
+                            respondeuQuiz
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -83,49 +83,70 @@ function cadastrar(req, res) {
     }
 }
 
-function resultadosPersonagens(req,res) {
+function resultadosPersonagens(req, res) {
     let idUsuario = req.body.idUsuarioServer;
 
     usuarioModel.resultadosPersonagens(idUsuario)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao exibir personagem vencedor! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao exibir personagem vencedor! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
-function resultadosPerfil(req,res) {
+function resultadosPerfil(req, res) {
     let idUsuario = req.body.idUsuarioServer;
 
     usuarioModel.resultadosPerfil(idUsuario)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao exibir perfil do usuário! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao exibir perfil do usuário! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function pessoasParecidas(req, res) {
+    let idUsuario = req.body.idUsuarioServer;
+    
+    usuarioModel.pessoasParecidas(idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao exibir pessoas parecidas! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 module.exports = {
     autenticar,
     cadastrar,
     resultadosPersonagens,
-    resultadosPerfil
+    resultadosPerfil,
+    pessoasParecidas
 }
