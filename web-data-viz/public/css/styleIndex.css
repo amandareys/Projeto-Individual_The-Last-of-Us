@@ -662,6 +662,7 @@ transform: translateY(-3px);
 
 .aviso {
     font-family: "Oswald";
+    font-size: 23px;
     margin-top: 15px;
     color: #9D833C;
 }
@@ -1479,7 +1480,7 @@ transform: translateY(-3px);
 }
 
 .quiz-tag {
-    width: 25%;
+    width: 30%;
     text-align: center;
     display: inline-block;
     background-color: #9d833c9a;
@@ -1491,7 +1492,7 @@ transform: translateY(-3px);
     font-weight: 200;
 
     border-radius: 30px;
-    padding: 8px 18px;
+    padding: 8px;
     margin-bottom: 22px;
 }
 

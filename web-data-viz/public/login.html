@@ -37,7 +37,7 @@
                     <button class="botao" onclick="entrar()">Entrar</button>
                 </div>
                 <p class="mensagem">Não possui conta?<a href="cadastro.html">Cadastre-se</a></p>
-                
+
 
                 <!-- <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
@@ -51,34 +51,46 @@
         let email = email_input.value;
         let senha = senha_input.value;
 
-        if (email.trim() == "" || senha.trim() == "") {
+        div_mensagem.innerHTML = "";
+
+        email_input.style.border = "";
+        senha_input.style.border = "";
+
+        if (
+            email.trim() == "" ||
+            senha.trim() == ""
+        ) {
             div_mensagem.innerHTML = `Preencha todos os campos`;
             return;
-        }
+        } 
 
-        fetch("/usuarios/autenticar",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                emailServer:email,
-                senhaServer:senha
-            })
-        }).then(function(resposta) {
-            console.log("Estou no then do entrar")
-            if (resposta.ok) {
-                resposta.json().then(json => {
-                    sessionStorage.EMAIL_USUARIO = json.email
-                    sessionStorage.NOME_USUARIO = json.nome 
-                    sessionStorage.ID_USUARIO = json.id
-                    sessionStorage.RESPONDEU_QUIZ = json.respondeuQuiz
-                    window.location = "./quiz.html"
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
                 })
-            }
-        }).catch(function(resposta){
-            console.log("ERRO: ",resposta)
-        })  
-    }
+            }).then(function (resposta) {
+                console.log("Estou no then do entrar")
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        sessionStorage.EMAIL_USUARIO = json.email
+                        sessionStorage.NOME_USUARIO = json.nome
+                        sessionStorage.ID_USUARIO = json.id
+                        sessionStorage.RESPONDEU_QUIZ = json.respondeuQuiz
+                        window.location = "./quiz.html"
+                    })
+                } else {
+                    div_mensagem.innerHTML = `Email ou senha incorretos`;
+                }
+            }).catch(function (resposta) {
+                console.log("ERRO: ", resposta)
+            })
+        }
+    
 </script>
+
 </html>

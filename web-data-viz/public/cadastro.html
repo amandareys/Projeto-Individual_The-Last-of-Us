@@ -78,15 +78,66 @@
 </body>
 <script>
     function cadastrar() {
-        nome = nome_input.value;
-        email = email_input.value;
-        senha = senha_input.value;
-        confirmar_senha = confirmacao_senha_input.value;
 
-        if (nome.trim() == "" || email.trim() == "" || senha.trim() == "" || confirmar_senha.trim() == "") {
-            div_mensagem.innerHTML = `Preencha todos os campos`;
+        let nome = nome_input.value;
+        let email = email_input.value;
+        let senha = senha_input.value;
+        let confirmar_senha = confirmacao_senha_input.value;
+
+        let indice_ponto_com = email.indexOf(".com");
+        let indice_arroba = email.indexOf("@");
+
+        let arroba_antes_ponto_com = indice_arroba < indice_ponto_com - 1;
+        let termina_em_ponto_com = email.endsWith(".com");
+
+        
+        div_mensagem.innerHTML = "";
+
+        nome_input.style.border = "";
+        email_input.style.border = "";
+        senha_input.style.border = "";
+        confirmacao_senha_input.style.border = "";
+
+       
+        if (
+            nome.trim() == "" ||
+            email.trim() == "" ||
+            senha.trim() == "" ||
+            confirmar_senha.trim() == ""
+        ) {
+
+            div_mensagem.innerHTML = "Preencha todos os campos";
+            return;
+
+        } else if (nome.length < 3) {
+
+            div_mensagem.innerHTML = "Nome inválido";
+            nome_input.style.border = "3px solid #9D833C";
+            return;
+
+        } else if (!(arroba_antes_ponto_com &&
+            indice_arroba > -1 &&
+            indice_ponto_com > -1 &&
+            termina_em_ponto_com)) {
+
+            div_mensagem.innerHTML = "Email inválido";
+            email_input.style.border = "3px solid #9D833C";
+            return;
+
+        } else if (senha.length < 6) {
+
+            div_mensagem.innerHTML = "Senha inválida: mínimo 6 caracteres";
+            senha_input.style.border = "3px solid #9D833C";
+            return;
+
+        } else if (senha != confirmar_senha) {
+
+            div_mensagem.innerHTML = "As senhas precisam estar iguais";
+            senha_input.style.border = "3px solid #9D833C";
+            confirmacao_senha_input.style.border = "3px solid #9D833C";
             return;
         }
+
 
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -98,14 +149,21 @@
                 emailServer: email,
                 senhaServer: senha
             })
-        }).then(function (resposta) {
-            console.log("Estou no then do cadastrar")
-            if (resposta.ok) {
-                window.location = "./login.html"
-            }
-        }).catch(function (resposta) {
-            console.log("ERRO: ", resposta)
         })
+            .then(function (resposta) {
+
+                console.log("Estou no then do cadastrar");
+
+                if (resposta.ok) {
+                    window.location = "./login.html";
+                }
+
+            }).catch(function (erro) {
+
+                console.log("ERRO:", erro);
+
+            });
+
     }
 </script>
 
