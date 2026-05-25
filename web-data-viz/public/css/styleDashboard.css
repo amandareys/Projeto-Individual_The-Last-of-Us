@@ -37,6 +37,7 @@
 .titulo-dashboard p{
     color: #cfcfcf;
     margin-top: 5px;
+    font-size: 25px;
 }
 
 .container-kpis{
@@ -53,6 +54,14 @@
     padding: 20px;
     border-radius: 12px;
     flex: 1;
+    cursor: default;
+}
+
+.kpi:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(157, 131, 60, 0.15);
+    border-left: 5px solid #c9a24a;
+    transition: 0.3s;
 }
 
 .kpi h3{

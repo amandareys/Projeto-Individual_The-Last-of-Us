@@ -11,7 +11,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/0f81e65dc9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styleIndex.css">
-    <title>Projeto Look for the light | quiz</title>
+    <title>Look for the light | quiz</title>
 </head>
 
 <body onload="verificarQuiz()">
@@ -86,6 +86,7 @@
     let respondeu = false;
 
     function buscarPerguntas() {
+// Pega as perguntas do banco
 
         fetch("/quiz/listarPerguntas", {
             method: "GET"
@@ -112,9 +113,11 @@
     }
 
     function organizarPerguntas(perguntasRecebidas) {
+// Tratamento dos dados,  transforma em algo organizado para o quiz usar.
 
         let perguntasOrganizadas = [];
 
+// percorre as informações vindas do banco
         for (let i = 0; i < perguntasRecebidas.length; i++) {
 
             let linha = perguntasRecebidas[i];
@@ -123,6 +126,7 @@
             let pergunta_existe = false;
             let pergunta_indice = -1;
 
+// percorre o vetor de Perguntas organizadas para saber quais perguntas ja existem lá
             for (let b = 0; b < perguntasOrganizadas.length; b++) {
                 if (perguntasOrganizadas[b].idPergunta == idPergunta) {
                     pergunta_existe = true;
@@ -131,6 +135,8 @@
                 }
             }
 
+// se a pergunta já existe, adiciona o resto das alternativas
+// se não existe, adiciona a pergunta junto da primeira alternativa
             if (pergunta_existe) {
                 perguntasOrganizadas[pergunta_indice].opcoes.push({
                     texto: linha.alternativa,
@@ -153,6 +159,7 @@
 
             let personagem_existe = false;
 
+// percorre o vetor dos persoangens e ve se o atual ja esta na lista
             for (let r = 0; r < pontosPersonagem.length; r++) {
                 if (pontosPersonagem[r].nome == linha.personagem) {
                     personagem_existe = true;
@@ -160,6 +167,7 @@
                 }
             }
 
+// se não estiver, ele adiciona
             if (!personagem_existe) {
                 pontosPersonagem.push({
                     "nome": linha.personagem,
@@ -171,6 +179,7 @@
 
             let perfil_existe = false;
 
+// a mesma coisa com o perfil
             for (let r = 0; r < pontosPerfil.length; r++) {
                 if (pontosPerfil[r].nome == linha.perfil) {
                     perfil_existe = true;
@@ -214,8 +223,9 @@
 
             let opcao = perguntaAtualObj.opcoes[i];
 
+// chama função responder() manda: o indice da opção e o botão clicado - parâmetros
             opcoes.innerHTML += `
-        
+
             <button 
                 class="opcao-btn"
                 onclick="responder(${i}, this)">
@@ -236,28 +246,29 @@
 
         let botoes = document.querySelectorAll(".opcao-btn");
 
+// limpa a seleçao das alternativas anteriores
         for (let i = 0; i < botoes.length; i++) {
             botoes[i].classList.remove("opcao-selecionada");
         }
 
+// adiciona uma class a alternativa selecionada
         botao.classList.add("opcao-selecionada");
 
-        let opcaoSelecionada =
-            perguntas[perguntaAtual].opcoes[indice];
+        let opcaoSelecionada = perguntas[perguntaAtual].opcoes[indice];
 
+// separa: personagem que vai ganhar pontos, quantidade de pontos, perfil que vai ganhar pontos 
         let personagem = opcaoSelecionada.personagem;
         let pontos = opcaoSelecionada.pontos;
-
         let perfil = opcaoSelecionada.perfil;
 
-
-
+// procura o personagem certo e soma pontos de cada um, em cada pergunta
         for (let i = 0; i < pontosPersonagem.length; i++) {
             if (pontosPersonagem[i].nome == personagem) {
                 pontosPersonagem[i].pontos += pontos;
             }
         }
 
+// faz o mesmo com o perfil
         for (let i = 0; i < pontosPerfil.length; i++) {
             if (pontosPerfil[i].nome == perfil) {
                 pontosPerfil[i].pontos += pontos;
@@ -291,7 +302,7 @@
         let perfilFinal = "";
         let maiorPontuacaoPerfil = 0;
 
-
+// percorre todos os personagens
         for (let i = 0; i < pontosPersonagem.length; i++) {
 
             if (pontosPersonagem[i].pontos > maiorPontuacaoPersonagem) {
@@ -319,6 +330,7 @@
             }
         }
 
+// percorre todos os perfis
         for (let i = 0; i < pontosPerfil.length; i++) {
 
             if (pontosPerfil[i].pontos > maiorPontuacaoPerfil) {
@@ -339,8 +351,6 @@
         opcoes.innerHTML = `
         
             <div class="quiz-final">
-
-
 
                 <h3>
                     VOCÊ É ${personagemFinal.toUpperCase()}
@@ -401,6 +411,7 @@
 
     function salvarResultadoPersonagem(idResultado) {
 
+// percorre todos os personagens e salva a pontuação de cada um para usar na dashboard
         for (let i = 0; i < pontosPersonagem.length; i++) {
 
             let personagemAtual = pontosPersonagem[i];
@@ -433,6 +444,7 @@
 
     function salvarResultadoPerfil(idResultado) {
 
+// mesma coisa com o perfil
         for (let i = 0; i < pontosPerfil.length; i++) {
 
             let perfilAtual = pontosPerfil[i];
@@ -463,16 +475,14 @@
         }
     }
 
-    // verificar se o usuário ja respondeu o quiz
+// verificar se o usuário ja respondeu o quiz
+// decide se mostra quiz ou bloqueio
     function verificarQuiz() {
 
-        // o sessionStorage sempre salva como string, não como verdadeiro ou false
+// o sessionStorage sempre salva como string, não como verdadeiro ou false
         if (sessionStorage.RESPONDEU_QUIZ == "true") {
 
             const idUsuarioServer = sessionStorage.ID_USUARIO;
-
-            // alert("Você já respondeu esse quiz, para verificar seu resultado, estamos te redirecionando para a dashboard")
-            // window.location = "./dashboards.html"
 
             div_bloqueio.classList.remove("none")
             fetch("/usuarios/resultadosPerfil", {

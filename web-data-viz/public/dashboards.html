@@ -12,7 +12,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/styleDashboard.css">
-    <title>Projeto Look for the light | dashboard</title>
+    <title>Look for the light | Dashboard</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
         <div class="conteudo-geral">
 
             <div class="titulo-dashboard">
-                <h1>Dashboard do Usuário</h1>
+                <h1>Dashboard</h1>
                 <p>Veja como suas escolhas definem seu perfil no universo de The Last of Us.</p>
             </div>
 
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="kpi">
-                    <h3>Mesmo resultado</h3>
+                    <h3>Outros jogadores como você</h3>
                     <span id="pessoasParecidas">Carregando</span>
                 </div>
 
@@ -135,10 +135,16 @@
 
             console.log(personagens);
 
+// query está ordenada da maior pontuação para a menor, portanto personagens[0] é o vencedor
+// pega o priemiro elemento do  vetor - vencedor
             document.getElementById("personagemUsuario").innerHTML = personagens[0].personagem;
 
+// soma os pontos de todos os persoangens
             let somaPontos = 0;
 
+// percorre todos os personagens
+// pontos do personagem vencedor divididos pela soma de todos os pontos para calcular a porcentagem de compatibilidade
+// dos pontos totais do quiz, quantos % pertencem ao personagem vencedor?
             for (let i = 0; i < personagens.length; i++) {
                 somaPontos += personagens[i].pontos;
             }
@@ -159,6 +165,7 @@
 
                 pontos.push(personagens[i].pontos);
 
+// if for o vencedor, por a cor dourada, else por as cores cinza
                 if (i == 0) {
                     cores.push('#9D833C');
                 } else {
@@ -345,9 +352,14 @@
 
             let contador = {};
 
+// percorre todos os usuarios da comunidade
             for (let i = 0; i < dados.length; i++) {
 
+// pega o personagem daquele usuario
                 let personagem = dados[i].personagem;
+
+// se existir valor, use ele. Se não existir, use 0
+// conta quantas pessoas tiveram cada personagem como vencedor.
 
                 contador[personagem] =
                     (contador[personagem] || 0) + 1;

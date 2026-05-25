@@ -8,7 +8,7 @@ function alterarNavbar() {
     <li><a href="personagens.html" ${location.endsWith('personagens.html') ? "style='color: #9d833c;'" : ""}>Personagens</a></li>
     <li><a href="criaturas.html" ${location.endsWith('criaturas.html') ? "style='color: #9d833c;'" : ""}>Criaturas</a></li>
     <li><a href="quiz.html" ${location.endsWith('quiz.html') ? "style='color: #9d833c;'" : ""}>Quiz</a></li>
-    <li><a href="dashboards.html" ${location.endsWith('dashboards.html') ? "style='color: #9d833c;'" : ""}>Dashboards</a></li>
+    <li><a href="dashboards.html" ${location.endsWith('dashboards.html') ? "style='color: #9d833c;'" : ""}>Dashboard</a></li>
     <li><a style="cursor:pointer;" onclick="logout()" class="botao-login">Sair</a></li>
     `;
     let links_deslogado = `
